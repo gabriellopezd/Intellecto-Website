@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Intellecto - Tu Portal de Proyectos">
+  <!-- Hero Section (Banner) -->
+  <section 
+    class="relative min-h-screen flex flex-col justify-center items-center text-center pt-20 overflow-hidden"
+  >
+    <div class="absolute inset-0 bg-gray-900 bg-[radial-gradient(#2d3748_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="relative z-10">
+      <h1 class="text-6xl md:text-8xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        Intellecto
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
+        Un universo digital donde las ideas se transforman en proyectos innovadores.
+      </p>
+      <a href="#projects" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
+        Explorar Proyectos
+      </a>
+    </div>
+  </section>
+
+  <!-- "Sobre Mí" Section -->
+  <section id="about" class="container mx-auto px-6 py-20 text-center">
+    <h2 class="text-4xl font-bold mb-6">Sobre Mí</h2>
+    <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Foto de perfil" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700">
+    <p class="max-w-3xl mx-auto text-gray-300">
+      ¡Hola! Soy un desarrollador y creador apasionado por la tecnología y el diseño. Este es mi espacio personal para documentar mi viaje, compartir conocimientos y mostrar los proyectos que construyo en el camino. ¡Bienvenido!
+    </p>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="stack" class="bg-gray-800 py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Mi Caja de Herramientas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div>
+          <h3 class="text-2xl font-bold mb-4 text-purple-400">Tecnologías</h3>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">React</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Astro</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Node.js</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Firebase</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Python</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-4 text-pink-400">Metodologías y Marcos</h3>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Scrum</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Kanban</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">ITIL</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-4 text-teal-400">Gestión y Arquitectura</h3>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">TOGAF</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Gestión de TI</span>
+            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Arquitectura Empresarial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold text-center mb-12">Mis Proyectos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+       <a href="/portfolio" class="relative block p-8 h-64 rounded-lg overflow-hidden bg-cover bg-center text-white shadow-lg transform transition-all duration-300 hover:-translate-y-2 group" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')">
+        <div class="absolute inset-0 bg-black opacity-60 group-hover:opacity-75 transition-opacity"></div>
+        <div class="relative h-full flex flex-col justify-end">
+          <h3 class="text-2xl font-bold mb-2">Portafolio Profesional</h3>
+          <p class="text-gray-300">Mi trayectoria, habilidades y proyectos destacados.</p>
+        </div>
+      </a>
+      <a href="/blog" class="relative block p-8 h-64 rounded-lg overflow-hidden bg-cover bg-center text-white shadow-lg transform transition-all duration-300 hover:-translate-y-2 group" style="background-image: url('https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80')">
+        <div class="absolute inset-0 bg-black opacity-60 group-hover:opacity-75 transition-opacity"></div>
+        <div class="relative h-full flex flex-col justify-end">
+          <h3 class="text-2xl font-bold mb-2">Blog de Tecnología</h3>
+          <p class="text-gray-300">Artículos y reflexiones sobre desarrollo y tecnología.</p>
+        </div>
+      </a>
+      <a href="/ingennia" class="relative block p-8 h-64 rounded-lg overflow-hidden bg-cover bg-center text-white shadow-lg transform transition-all duration-300 hover:-translate-y-2 group" style="background-image: url('https://images.unsplash.com/photo-1559028006-44a136b35369?auto=format&fit=crop&q=80')">
+        <div class="absolute inset-0 bg-black opacity-60 group-hover:opacity-75 transition-opacity"></div>
+        <div class="relative h-full flex flex-col justify-end">
+          <h3 class="text-2xl font-bold mb-2">Aplicación Inngenia</h3>
+          <p class="text-gray-300">App para la gestión y visualización de ideas creativas.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Latest News Section -->
+  <section id="news" class="bg-gray-800 py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Últimas Noticias</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Post 1 -->
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">Desplegando Astro en Firebase</h3>
+          <p class="text-gray-400 mb-4">Una guía paso a paso para llevar tu proyecto de Astro a producción con Firebase Hosting.</p>
+          <a href="#" class="text-purple-400 hover:underline">Leer más &rarr;</a>
+        </div>
+        <!-- Post 2 -->
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">El poder de la Arquitectura Empresarial</h3>
+          <p class="text-gray-400 mb-4">Cómo los principios de TOGAF pueden transformar la estrategia de TI de una organización.</p>
+          <a href="#" class="text-pink-400 hover:underline">Leer más &rarr;</a>
+        </div>
+        <!-- Post 3 -->
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">React vs. Astro: ¿Cuándo usar cada uno?</h3>
+          <p class="text-gray-400 mb-4">Un análisis comparativo sobre estas dos grandes tecnologías para el desarrollo web moderno.</p>
+          <a href="#" class="text-teal-400 hover:underline">Leer más &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="container mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold text-center mb-12">Hablemos</h2>
+    <form class="max-w-xl mx-auto">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-300 mb-2">Nombre</label>
+        <input type="text" id="name" name="name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500">
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-300 mb-2">Email</label>
+        <input type="email" id="email" name="email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500">
+      </div>
+      <div class="mb-6">
+        <label for="message" class="block text-gray-300 mb-2">Mensaje</label>
+        <textarea id="message" name="message" rows="5" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500"></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
+          Enviar Mensaje
+        </button>
+      </div>
+    </form>
+  </section>
+</Layout>
