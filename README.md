@@ -1,43 +1,28 @@
-# Astro Starter Kit: Minimal
+# Intellecto - Portal de Proyectos y Marca Personal
 
-```sh
-npm create astro@latest -- --template minimal
-```
+## Descripción
+**Intellecto** es un universo digital moderno diseñado para transformar ideas en proyectos innovadores. Este portal sirve como marca personal y portafolio profesional, destacando la experiencia en **Tecnología, Gestión de Proyectos (Scrum/Kanban) y Arquitectura Empresarial (TOGAF)**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+El sitio ofrece una experiencia visualmente impactante y optimizada para la velocidad, presentando un stack de herramientas, proyectos destacados y un blog especializado.
 
-## 🚀 Project Structure
+## Tech Stack
+El proyecto ha sido desarrollado utilizando tecnologías de vanguardia para garantizar rendimiento y escalabilidad:
+*   **Framework:** [Astro](https://astro.build/) (v5.17.1) - Framework web para la generación de sitios estáticos ultrarrápidos.
+*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS orientado a utilidades para un diseño moderno y responsivo.
+*   **Hosting & Backend:** [Firebase](https://firebase.google.com/) - Infraestructura para el despliegue y servicios adicionales.
+*   **Entorno de Desarrollo:** [Google IDX](https.idx.google.com/) - Configuración optimizada para desarrollo en la nube.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura del Proyecto
+La arquitectura del repositorio sigue las mejores prácticas de Astro:
+*   `/dist`: Contiene el sitio estático generado tras el proceso de *build*, optimizado para producción.
+*   `/src`: (Código fuente) Incluye componentes reutilizables, layouts y las páginas del sitio.
+*   `/public`: Recursos estáticos como iconos, fuentes y archivos descargables (ej. CV).
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Autor
+**Gabriel Lopez** - Especialista en Arquitectura Empresarial, Estrategia de TI y Desarrollo de Software.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Licencia
+Este proyecto está bajo la **Licencia MIT**. Puedes consultar el archivo `LICENSE` para más detalles.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+*Última actualización: Sat Feb 14 09:17:51 PM UTC 2026*
