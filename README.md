@@ -18,6 +18,9 @@ La arquitectura del repositorio sigue las mejores prácticas de Astro:
 *   `/src`: (Código fuente) Incluye componentes reutilizables, layouts y las páginas del sitio.
 *   `/public`: Recursos estáticos como iconos, fuentes y archivos descargables (ej. CV).
 
+## Historial de Cambios
+- **2024-05-24:** `feat: Add package-lock.json` - Se añade el archivo de bloqueo de paquetes para garantizar la reproducibilidad de las dependencias.
+
 ## Autor
 **Gabriel Lopez** - Especialista en Arquitectura Empresarial, Estrategia de TI y Desarrollo de Software.
 
@@ -25,4 +28,4 @@ La arquitectura del repositorio sigue las mejores prácticas de Astro:
 Este proyecto está bajo la **Licencia MIT**. Puedes consultar el archivo `LICENSE` para más detalles.
 
 ---
-*Última actualización: Sat Feb 14 09:17:51 PM UTC 2026*
+*Última actualización: 24 de Mayo de 2024*
