@@ -2,145 +2,365 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Intellecto - Tu Portal de Proyectos">
-  <!-- Hero Section (Banner) -->
-  <section 
-    class="relative min-h-screen flex flex-col justify-center items-center text-center pt-20 overflow-hidden"
-  >
-    <div class="absolute inset-0 bg-gray-900 bg-[radial-gradient(#2d3748_1px,transparent_1px)] [background-size:16px_16px]"></div>
-    <div class="relative z-10">
-      <h1 class="text-6xl md:text-8xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-        Intellecto
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
-        Un universo digital donde las ideas se transforman en proyectos innovadores.
-      </p>
-      <a href="#projects" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
-        Explorar Proyectos
-      </a>
+<Layout title="Intellecto - Gabriel López | Arquitecto Empresarial">
+
+  <!-- ===== HERO SECTION ===== -->
+  <section style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; padding-top: var(--nav-height); background: var(--color-bg);">
+
+    <!-- Background layers -->
+    <div style="position: absolute; inset: 0; background: var(--gradient-hero);"></div>
+    <div style="position: absolute; inset: 0; background: var(--gradient-mesh);"></div>
+    <div class="decoration-grid"></div>
+
+    <!-- Animated orbs -->
+    <div class="glow-orb animate-float" style="width: 350px; height: 350px; background: var(--color-accent); opacity: 0.12; top: -5%; right: -10%;"></div>
+    <div class="glow-orb animate-float-reverse" style="width: 300px; height: 300px; background: var(--color-secondary); opacity: 0.10; bottom: 5%; left: -10%;"></div>
+
+    <!-- Floating decorative shapes (hidden on mobile via CSS) -->
+    <div class="hide-mobile animate-float" style="position: absolute; top: 18%; left: 8%; animation-delay: -2s;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="opacity: 0.2;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <div class="hide-mobile animate-float-reverse" style="position: absolute; top: 30%; right: 12%; animation-delay: -1s;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="1.5" style="opacity: 0.18;"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container-main" style="position: relative; z-index: 10;">
+      <div class="hero-content">
+
+        <!-- Badge -->
+        <div class="section-tag animate-fade-up" style="margin-bottom: 1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin-slow" style="animation-duration: 4s;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+          Arquitecto Empresarial & Líder TI
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title animate-fade-up delay-100" style="margin-bottom: 1.25rem;">
+          Hola, soy<br/>
+          <span class="gradient-text-animated">Gabriel López</span>
+        </h1>
+
+        <!-- Tagline -->
+        <p class="hero-tagline animate-fade-up delay-200">
+          Transformando organizaciones a través de la tecnología,
+          la innovación y el liderazgo estratégico.
+        </p>
+
+        <!-- Skills -->
+        <div class="skills-row animate-fade-up delay-300">
+          <span class="skill-tag">Arquitectura Empresarial</span>
+          <span class="skill-tag">Transformación Digital</span>
+          <span class="skill-tag">Gobierno Digital</span>
+          <span class="skill-tag">TOGAF</span>
+          <span class="skill-tag">SCRUM</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Power BI</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="hero-buttons animate-fade-up delay-400">
+          <a href="/sobre-mi" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Ver Perfil
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            Explorar Proyectos
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#projects" class="scroll-indicator animate-fade-up delay-800" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);">
+      <span>Descubre más</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section" style="background: var(--color-bg);">
+    <div class="container-main">
+      <!-- Section Header -->
+      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
+        <div class="section-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+          Proyectos
+        </div>
+        <h2 class="section-title">
+          Explora Mis <span class="gradient-text">Proyectos</span>
+        </h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Descubre mi trabajo en experiencia profesional,
+          aplicaciones innovadoras y contenido tecnológico.
+        </p>
+      </div>
+
+      <!-- Project Cards -->
+      <div class="grid-1-2-3">
+        <!-- Card 1 -->
+        <div class="reveal" style="transition-delay: 100ms;">
+          <a href="/sobre-mi" class="project-card" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
+            <div class="project-card-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="project-card-content">
+              <div class="project-card-badge" style="background: rgba(0, 212, 255, 0.12); border: 1px solid rgba(0, 212, 255, 0.2); color: var(--color-accent);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Perfil
+              </div>
+              <h3 class="project-card-title">Portafolio Profesional</h3>
+              <p class="project-card-desc">Mi trayectoria, habilidades y proyectos destacados.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="reveal" style="transition-delay: 200ms;">
+          <a href="#" class="project-card" style="background-image: url('https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
+            <div class="project-card-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="project-card-content">
+              <div class="project-card-badge" style="background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.2); color: var(--color-secondary);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+                Blog
+              </div>
+              <h3 class="project-card-title">Blog de Tecnología</h3>
+              <p class="project-card-desc">Artículos sobre arquitectura empresarial, IA y desarrollo.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="reveal" style="transition-delay: 300ms;">
+          <a href="https://app.intellecto.com.co" target="_blank" class="project-card" style="background-image: url('https://images.unsplash.com/photo-1559028006-44a136b35369?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
+            <div class="project-card-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="project-card-content">
+              <div class="project-card-badge" style="background: rgba(236, 72, 153, 0.12); border: 1px solid rgba(236, 72, 153, 0.2); color: var(--color-pink);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+                App
+              </div>
+              <h3 class="project-card-title">Aplicación Ingennia</h3>
+              <p class="project-card-desc">Gestión inteligente de procesos y visualización de ideas.</p>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- "Sobre Mí" Section -->
-  <section id="about" class="container mx-auto px-6 py-20 text-center">
-    <h2 class="text-4xl font-bold mb-6">Sobre Mí</h2>
-    <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Foto de perfil" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700">
-    <p class="max-w-3xl mx-auto text-gray-300">
-      ¡Hola! Soy un desarrollador y creador apasionado por la tecnología y el diseño. Este es mi espacio personal para documentar mi viaje, compartir conocimientos y mostrar los proyectos que construyo en el camino. ¡Bienvenido!
-    </p>
-  </section>
+  <!-- ===== TECH STACK SECTION ===== -->
+  <section class="section" style="background: var(--color-bg-secondary);">
+    <div class="section-divider" style="margin-bottom: 3rem;"></div>
+    <div class="container-main">
+      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
+        <div class="section-tag section-tag-purple">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          Herramientas
+        </div>
+        <h2 class="section-title">
+          Mi Caja de <span class="gradient-text-purple">Herramientas</span>
+        </h2>
+      </div>
 
-  <!-- Tech Stack Section -->
-  <section id="stack" class="bg-gray-800 py-20">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">Mi Caja de Herramientas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-        <div>
-          <h3 class="text-2xl font-bold mb-4 text-purple-400">Tecnologías</h3>
-          <div class="flex flex-wrap justify-center gap-2">
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">React</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Astro</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Node.js</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Firebase</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Python</span>
+      <div class="grid-1-2-3">
+        <!-- Technologies -->
+        <div class="glass-card stack-card reveal" style="transition-delay: 100ms;">
+          <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); display: flex; align-items: center; gap: 10px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(0, 212, 255, 0.1); flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            </div>
+            Tecnologías
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Astro</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Python</span>
           </div>
         </div>
-        <div>
-          <h3 class="text-2xl font-bold mb-4 text-pink-400">Metodologías y Marcos</h3>
-          <div class="flex flex-wrap justify-center gap-2">
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Scrum</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Kanban</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">ITIL</span>
+
+        <!-- Methodologies -->
+        <div class="glass-card stack-card reveal" style="transition-delay: 200ms;">
+          <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-secondary); display: flex; align-items: center; gap: 10px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(168, 85, 247, 0.1); flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            Metodologías
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">Scrum</span>
+            <span class="skill-tag">Kanban</span>
+            <span class="skill-tag">ITIL</span>
           </div>
         </div>
-        <div>
-          <h3 class="text-2xl font-bold mb-4 text-teal-400">Gestión y Arquitectura</h3>
-          <div class="flex flex-wrap justify-center gap-2">
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">TOGAF</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Gestión de TI</span>
-            <span class="bg-gray-700 text-white px-3 py-1 rounded-full">Arquitectura Empresarial</span>
+
+        <!-- Management -->
+        <div class="glass-card stack-card reveal" style="transition-delay: 300ms;">
+          <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-teal); display: flex; align-items: center; gap: 10px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.1); flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+            </div>
+            Gestión & Arquitectura
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">TOGAF</span>
+            <span class="skill-tag">Gestión de TI</span>
+            <span class="skill-tag">Arq. Empresarial</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="container mx-auto px-6 py-20">
-    <h2 class="text-4xl font-bold text-center mb-12">Mis Proyectos</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-       <a href="/portfolio" class="relative block p-8 h-64 rounded-lg overflow-hidden bg-cover bg-center text-white shadow-lg transform transition-all duration-300 hover:-translate-y-2 group" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')">
-        <div class="absolute inset-0 bg-black opacity-60 group-hover:opacity-75 transition-opacity"></div>
-        <div class="relative h-full flex flex-col justify-end">
-          <h3 class="text-2xl font-bold mb-2">Portafolio Profesional</h3>
-          <p class="text-gray-300">Mi trayectoria, habilidades y proyectos destacados.</p>
+  <!-- ===== STATS SECTION ===== -->
+  <section class="section" style="background: var(--color-bg);">
+    <div class="container-main">
+      <div class="reveal" style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+          Experiencia
         </div>
-      </a>
-      <a href="/blog" class="relative block p-8 h-64 rounded-lg overflow-hidden bg-cover bg-center text-white shadow-lg transform transition-all duration-300 hover:-translate-y-2 group" style="background-image: url('https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80')">
-        <div class="absolute inset-0 bg-black opacity-60 group-hover:opacity-75 transition-opacity"></div>
-        <div class="relative h-full flex flex-col justify-end">
-          <h3 class="text-2xl font-bold mb-2">Blog de Tecnología</h3>
-          <p class="text-gray-300">Artículos y reflexiones sobre desarrollo y tecnología.</p>
-        </div>
-      </a>
-      <a href="/ingennia" class="relative block p-8 h-64 rounded-lg overflow-hidden bg-cover bg-center text-white shadow-lg transform transition-all duration-300 hover:-translate-y-2 group" style="background-image: url('https://images.unsplash.com/photo-1559028006-44a136b35369?auto=format&fit=crop&q=80')">
-        <div class="absolute inset-0 bg-black opacity-60 group-hover:opacity-75 transition-opacity"></div>
-        <div class="relative h-full flex flex-col justify-end">
-          <h3 class="text-2xl font-bold mb-2">Aplicación Inngenia</h3>
-          <p class="text-gray-300">App para la gestión y visualización de ideas creativas.</p>
-        </div>
-      </a>
-    </div>
-  </section>
+        <h2 class="section-title">
+          Impacto en <span class="gradient-text">Números</span>
+        </h2>
+      </div>
 
-  <!-- Latest News Section -->
-  <section id="news" class="bg-gray-800 py-20">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">Últimas Noticias</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Post 1 -->
-        <div class="bg-gray-900 p-6 rounded-lg">
-          <h3 class="text-xl font-bold mb-2">Desplegando Astro en Firebase</h3>
-          <p class="text-gray-400 mb-4">Una guía paso a paso para llevar tu proyecto de Astro a producción con Firebase Hosting.</p>
-          <a href="#" class="text-purple-400 hover:underline">Leer más &rarr;</a>
+      <div class="grid-2-4">
+        <div class="glass-card stat-card reveal" style="transition-delay: 100ms;">
+          <div class="stat-icon" style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.15);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+          </div>
+          <div class="stat-number gradient-text">8+</div>
+          <div class="stat-label">Años de Experiencia</div>
         </div>
-        <!-- Post 2 -->
-        <div class="bg-gray-900 p-6 rounded-lg">
-          <h3 class="text-xl font-bold mb-2">El poder de la Arquitectura Empresarial</h3>
-          <p class="text-gray-400 mb-4">Cómo los principios de TOGAF pueden transformar la estrategia de TI de una organización.</p>
-          <a href="#" class="text-pink-400 hover:underline">Leer más &rarr;</a>
+
+        <div class="glass-card stat-card reveal" style="transition-delay: 200ms;">
+          <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.15);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          </div>
+          <div class="stat-number" style="background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">15+</div>
+          <div class="stat-label">Proyectos</div>
         </div>
-        <!-- Post 3 -->
-        <div class="bg-gray-900 p-6 rounded-lg">
-          <h3 class="text-xl font-bold mb-2">React vs. Astro: ¿Cuándo usar cada uno?</h3>
-          <p class="text-gray-400 mb-4">Un análisis comparativo sobre estas dos grandes tecnologías para el desarrollo web moderno.</p>
-          <a href="#" class="text-teal-400 hover:underline">Leer más &rarr;</a>
+
+        <div class="glass-card stat-card reveal" style="transition-delay: 300ms;">
+          <div class="stat-icon" style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.15);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <div class="stat-number" style="background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">5+</div>
+          <div class="stat-label">Entidades Gobierno</div>
+        </div>
+
+        <div class="glass-card stat-card reveal" style="transition-delay: 400ms;">
+          <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.15);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="stat-number" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">3</div>
+          <div class="stat-label">Países</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
-  <section id="contact" class="container mx-auto px-6 py-20">
-    <h2 class="text-4xl font-bold text-center mb-12">Hablemos</h2>
-    <form class="max-w-xl mx-auto">
-      <div class="mb-4">
-        <label for="name" class="block text-gray-300 mb-2">Nombre</label>
-        <input type="text" id="name" name="name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500">
+  <!-- ===== NEWS SECTION ===== -->
+  <section class="section" style="background: var(--color-bg-secondary);">
+    <div class="section-divider" style="margin-bottom: 3rem;"></div>
+    <div class="container-main">
+      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
+        <div class="section-tag section-tag-purple">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+          Noticias
+        </div>
+        <h2 class="section-title">
+          Últimas <span class="gradient-text-purple">Noticias</span>
+        </h2>
       </div>
-      <div class="mb-4">
-        <label for="email" class="block text-gray-300 mb-2">Email</label>
-        <input type="email" id="email" name="email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500">
+
+      <div class="grid-1-2-3">
+        <div class="news-card reveal" style="transition-delay: 100ms;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(0, 212, 255, 0.08); margin-bottom: 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+          </div>
+          <h3 class="news-card-title">Desplegando Astro en Firebase</h3>
+          <p class="news-card-desc">Una guía paso a paso para llevar tu proyecto de Astro a producción con Firebase Hosting.</p>
+          <a href="#" class="news-card-link" style="color: var(--color-accent);">
+            Leer más
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="news-card reveal" style="transition-delay: 200ms;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(168, 85, 247, 0.08); margin-bottom: 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+          </div>
+          <h3 class="news-card-title">El poder de la Arquitectura Empresarial</h3>
+          <p class="news-card-desc">Cómo los principios de TOGAF pueden transformar la estrategia de TI.</p>
+          <a href="#" class="news-card-link" style="color: var(--color-secondary);">
+            Leer más
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="news-card reveal" style="transition-delay: 300ms;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.08); margin-bottom: 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          </div>
+          <h3 class="news-card-title">React vs. Astro: ¿Cuándo usar cada uno?</h3>
+          <p class="news-card-desc">Un análisis comparativo sobre estas dos tecnologías para desarrollo web.</p>
+          <a href="#" class="news-card-link" style="color: var(--color-teal);">
+            Leer más
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="mb-6">
-        <label for="message" class="block text-gray-300 mb-2">Mensaje</label>
-        <textarea id="message" name="message" rows="5" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500"></textarea>
-      </div>
-      <div class="text-center">
-        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
-          Enviar Mensaje
-        </button>
-      </div>
-    </form>
+    </div>
   </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section" style="background: var(--color-bg);">
+    <div class="container-main">
+      <div class="reveal">
+        <div class="glass-card cta-card-inner" style="position: relative; overflow: hidden; border-color: rgba(0, 212, 255, 0.1); background: linear-gradient(155deg, rgba(0, 212, 255, 0.04) 0%, rgba(168, 85, 247, 0.04) 100%);">
+          <!-- Orbs -->
+          <div class="glow-orb animate-pulse-glow" style="width: 180px; height: 180px; background: var(--color-accent); opacity: 0.12; top: -50px; left: -50px;"></div>
+          <div class="glow-orb animate-pulse-glow" style="width: 200px; height: 200px; background: var(--color-secondary); opacity: 0.10; bottom: -60px; right: -60px; animation-delay: 2s;"></div>
+
+          <div style="position: relative; z-index: 10; text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 0.75rem;">
+              ¿Listo para <span class="gradient-text">colaborar</span>?
+            </h2>
+            <p style="font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+              Estoy disponible para consultoría en Arquitectura Empresarial,
+              Transformación Digital y proyectos TI.
+            </p>
+
+            <div class="cta-form">
+              <form>
+                <div style="margin-bottom: 1rem;">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input type="text" id="name" name="name" placeholder="Tu nombre" class="form-input">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" class="form-input">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                  <label for="message" class="form-label">Mensaje</label>
+                  <textarea id="message" name="message" rows="4" placeholder="Cuéntame sobre tu proyecto..." class="form-input" style="resize: none;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                  Enviar Mensaje
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </Layout>

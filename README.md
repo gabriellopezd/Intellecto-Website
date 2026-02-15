@@ -1,33 +1,63 @@
 # Intellecto - Portal de Proyectos y Marca Personal
 
-## Descripción
-**Intellecto** es un universo digital moderno diseñado para transformar ideas en proyectos innovadores. Este portal sirve como marca personal y portafolio profesional, destacando la experiencia en **Tecnología, Gestión de Proyectos (Scrum/Kanban) y Arquitectura Empresarial (TOGAF)**.
+## 🚀 Descripción
+**Intellecto** es un universo digital de nivel **Ultra Premium** diseñado para transformar ideas en proyectos innovadores. Este portal sirve como marca personal y portafolio profesional de **Gabriel López**, destacando su experiencia en **Arquitectura Empresarial (TOGAF), Estrategia de TI y Liderazgo de Proyectos**.
 
-El sitio ofrece una experiencia visualmente impactante y optimizada para la velocidad, presentando un stack de herramientas, proyectos destacados y un blog especializado.
+La versión actual representa un rediseño completo enfocado en una estética cinematográfica, micro-interacciones fluidas y una jerarquía visual sofisticada.
 
-## Tech Stack
-El proyecto ha sido desarrollado utilizando tecnologías de vanguardia para garantizar rendimiento y escalabilidad:
-*   **Framework:** [Astro](https://astro.build/) (v5.17.1) - Framework web para la generación de sitios estáticos ultrarrápidos.
-*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS orientado a utilidades para un diseño moderno y responsivo.
-*   **Hosting & Backend:** [Firebase](https://firebase.google.com/) - Infraestructura para el despliegue y servicios adicionales.
-*   **Entorno de Desarrollo:** [Google IDX](https.idx.google.com/) - Configuración optimizada para desarrollo en la nube.
+## ✨ Mejoras UI/UX Recientes (Febrero 2026)
+Se ha implementado una evolución visual profunda:
+*   **Profundidad Visual:** Glassmorphism avanzado con capas de desenfoque, bordes luminosos y sombras multinivel.
+*   **Micro-interacciones:** Efectos de spotlight dinámico que siguen el cursor, efectos 3D tilt en tarjetas y transiciones fluidas.
+*   **Animaciones Cinematográficas:** Fondo de aurora boreal animado, orbs de luz flotantes y entradas coordinadas (stagger animations).
+*   **Jerarquía de Contenido:** Secciones claramente divididas con gradientes lineales y separadores decorativos.
 
-## Estructura del Proyecto
-La arquitectura del repositorio sigue las mejores prácticas de Astro:
-*   `/dist`: Contiene el sitio estático generado tras el proceso de *build*, optimizado para producción.
-*   `/src`: (Código fuente) Incluye componentes reutilizables, layouts y las páginas del sitio.
-*   `/public`: Recursos estáticos como iconos, fuentes y archivos descargables (ej. CV).
+## 🎨 Sistema de Diseño
+*   **Tipografía:** 
+    *   **Outfit:** Fuente display para títulos, aportando modernidad y carácter.
+    *   **Inter:** Fuente para cuerpo de texto, garantizando máxima legibilidad.
+*   **Paleta de Colores:** "Ultra Premium Dark Palette" con acentos vibrantes en Cyan, Teal, Púrpura y Rosa, sobre fondos de azul profundo.
 
-## Historial de Cambios
-- **2026-02-14 21:46:47 UTC:** `feat: Add package-lock.json` - Se añade el archivo de bloqueo de paquetes para garantizar la reproducibilidad de las dependencias.
-- **2026-02-14 21:47:44 UTC:** `docs: Update change history in README` - Se actualiza el historial de cambios en el README.
-- **2026-02-14 21:57:49 UTC:** `feat: Add Inngenia link to nav menu` - Se agrega un nuevo enlace al menú de navegación que dirige a Inngenia.
+## 🛠️ Tech Stack
+*   **Framework:** [Astro](https://astro.build/) (v5.17.1)
+*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (v4.0)
+*   **Hosting:** [Firebase Hosting](https://firebase.google.com/)
+*   **Animaciones:** CSS nativo y Framer Motion (para componentes interactivos).
 
-## Autor
-**Gabriel Lopez** - Especialista en Arquitectura Empresarial, Estrategia de TI y Desarrollo de Software.
+## 💻 Despliegue Local
+Para ejecutar el proyecto en tu entorno local:
 
-## Licencia
-Este proyecto está bajo la **Licencia MIT**. Puedes consultar el archivo `LICENSE` para más detalles.
+1.  **Modo Desarrollo (Hot Reload):**
+    ```bash
+    npm run dev
+    ```
+2.  **Build de Producción:**
+    ```bash
+    npm run build
+    ```
+3.  **Previsualizar Producción:**
+    ```bash
+    npm run preview
+    ```
+
+## 🌐 Despliegue en Producción
+El despliegue se realiza a través de Firebase Hosting en el proyecto `intellecto-15322884-10710`.
+```bash
+firebase deploy --only hosting
+```
+
+## 📂 Estructura del Proyecto
+*   `/src/pages`: Páginas principales (`index.astro`, `sobre-mi.astro`).
+*   `/src/layouts`: Estructura base del sitio con Navbar y Footer premium.
+*   `/src/styles`: Estilos globales y tokens del sistema de diseño.
+*   `/public`: Recursos estáticos (PDFs, imágenes, favicon).
+
+## 📝 Historial de Cambios Destacados
+*   **2026-02-15:** `feat: Rediseño completo UI/UX Ultra Premium y configuración de Firebase.`
+*   **2026-02-14:** `feat: Integración de fuentes Google Fonts y sistema de cuadrícula responsivo.`
+
+## 👤 Autor
+**Gabriel López** - Arquitecto Empresarial y Estratega de TI.
 
 ---
-*Última actualización: 2026-02-14 21:57:49 UTC*
+*Última actualización: Febrero 2025*

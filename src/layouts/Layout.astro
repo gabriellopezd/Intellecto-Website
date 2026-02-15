@@ -12,42 +12,216 @@ const { title } = Astro.props;
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Portal profesional de Gabriel López - Arquitecto Empresarial y Líder de Proyectos TI." />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-900 text-white">
-    <!-- Barra de Navegación -->
-    <header class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-80 backdrop-blur-sm z-50">
-      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          Intellecto
+  <body>
+
+    <!-- Navbar -->
+    <header id="navbar" class="navbar">
+      <nav class="nav-inner">
+        <!-- Logo -->
+        <a href="/" style="display: flex; align-items: center; gap: 10px; position: relative; z-index: 10;">
+          <div class="logo-mark">GL</div>
+          <div>
+            <span class="logo-text">Intellecto</span>
+            <span class="logo-subtitle">by Gabriel López</span>
+          </div>
         </a>
-        <div class="flex space-x-4">
-          <a href="/portfolio" class="hover:text-purple-300 transition-colors">Portafolio</a>
-          <a href="/blog" class="hover:text-pink-300 transition-colors">Blog</a>
-          <a href="/sobre-mi" class="hover:text-teal-300 transition-colors">Sobre Mí</a>
-          <a href="https://app.intellecto.com.co" target="_blank" class="hover:text-green-300 transition-colors">Inngenia</a>
+
+        <!-- Desktop Nav -->
+        <div class="nav-links">
+          <a href="/" class="nav-link">Inicio</a>
+          <a href="/sobre-mi" class="nav-link">Sobre Mí</a>
+          <a href="https://app.intellecto.com.co" target="_blank" class="nav-link">Ingennia</a>
         </div>
+
+        <!-- CTA Desktop -->
+        <a href="#contact" class="nav-cta">
+          Contacto
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="menu-toggle" class="hamburger" aria-label="Menú">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </nav>
     </header>
 
-    <!-- Contenido Principal -->
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="/" class="mobile-nav-link">
+        <div class="mobile-nav-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        Inicio
+      </a>
+      <a href="/sobre-mi" class="mobile-nav-link">
+        <div class="mobile-nav-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        Sobre Mí
+      </a>
+      <a href="https://app.intellecto.com.co" target="_blank" class="mobile-nav-link">
+        <div class="mobile-nav-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+        </div>
+        Ingennia App
+      </a>
+      <div style="margin-top: 1.5rem;">
+        <a href="#contact" class="btn btn-primary btn-full" id="mobile-contact">Contáctame</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
       <slot />
     </main>
 
-    <!-- Pie de Página -->
-    <footer class="bg-gray-800 mt-16 py-8">
-      <div class="container mx-auto px-6 text-center text-gray-400">
-        <p>&copy; {new Date().getFullYear()} Intellecto. Todos los derechos reservados.</p>
-        <div class="flex justify-center space-x-4 mt-4">
-          <a href="#" class="hover:text-white">GitHub</a>
-          <a href="#" class="hover:text-white">LinkedIn</a>
-          <a href="#" class="hover:text-white">Twitter</a>
+    <!-- Footer -->
+    <footer style="position: relative; overflow: hidden; background: var(--color-bg-secondary);">
+      <!-- Top gradient line -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 5%, var(--color-accent) 35%, var(--color-secondary) 65%, transparent 95%);"></div>
+
+      <!-- Background orbs -->
+      <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none;">
+        <div class="glow-orb animate-pulse-glow" style="width: 250px; height: 250px; background: var(--color-accent); opacity: 0.04; top: -60px; right: -60px;"></div>
+        <div class="glow-orb animate-pulse-glow" style="width: 250px; height: 250px; background: var(--color-secondary); opacity: 0.04; bottom: -60px; left: -60px; animation-delay: 2s;"></div>
+      </div>
+
+      <div class="container-main footer-section" style="position: relative; z-index: 10;">
+        <div class="grid-footer" style="margin-bottom: 2.5rem;">
+          <!-- Brand -->
+          <div>
+            <a href="/" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;">
+              <div class="logo-mark">GL</div>
+              <div>
+                <span class="logo-text" style="display: block;">Intellecto</span>
+                <span style="font-size: 0.65rem; font-weight: 500; color: var(--color-text-muted);">by Gabriel López</span>
+              </div>
+            </a>
+            <p style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+              Arquitecto Empresarial con +8 años transformando organizaciones a través de la tecnología.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--color-text-muted);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                Bogotá, Colombia
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--color-text-muted);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (+57) 310-525-8784
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px;">
+              <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span>
+              Navegación
+            </h4>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <a href="/sobre-mi" class="footer-link">Perfil Profesional</a>
+              <a href="#" class="footer-link">Blog Tecnológico</a>
+              <a href="https://app.intellecto.com.co" target="_blank" class="footer-link">Ingennia App</a>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px;">
+              <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-secondary); display: inline-block;"></span>
+              Servicios
+            </h4>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <span class="footer-link">Arquitectura Empresarial</span>
+              <span class="footer-link">Transformación Digital</span>
+              <span class="footer-link">Consultoría TI</span>
+              <span class="footer-link">Gobierno Digital</span>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px;">
+              <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-amber); display: inline-block;"></span>
+              Conecta
+            </h4>
+            <div style="display: flex; gap: 10px; margin-bottom: 1.25rem;">
+              <a href="mailto:gabriellopezdelaossa@gmail.com" class="social-icon" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/gabriellopez" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://github.com/gabriellopezd" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </a>
+            </div>
+            <a href="mailto:gabriellopezdelaossa@gmail.com" class="btn btn-primary btn-full" style="font-size: 0.85rem; padding: 10px 20px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+              Enviar mensaje
+            </a>
+          </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="divider" style="margin-bottom: 1.5rem;"></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--color-text-muted); text-align: center;">
+          <p>© 2026 Gabriel López. Todos los derechos reservados.</p>
+          <p style="display: flex; align-items: center; gap: 6px;">
+            Hecho con
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2" class="animate-bounce-gentle"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            en Colombia
+          </p>
         </div>
       </div>
     </footer>
+
+    <script>
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          navbar?.classList.add('navbar-scrolled');
+        } else {
+          navbar?.classList.remove('navbar-scrolled');
+        }
+      }, { passive: true });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('open');
+        document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+      });
+
+      mobileMenu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu?.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Intersection Observer for reveal animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '-30px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
