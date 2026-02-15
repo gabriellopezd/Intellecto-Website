@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Nuestro Equipo - Intellecto">
+  <section style="position: relative; min-height: 85vh; display: flex; align-items: center; overflow: hidden; padding-top: calc(var(--nav-height) + 30px); padding-bottom: 60px; background: var(--color-bg);">
+
+    <!-- Background -->
+    <div style="position: absolute; inset: 0; background: var(--gradient-hero);"></div>
+    <div class="decoration-grid"></div>
+    <div class="glow-orb animate-pulse-glow" style="width: 300px; height: 300px; background: var(--color-secondary); opacity: 0.10; top: 10%; right: -5%;"></div>
+    <div class="glow-orb animate-pulse-glow" style="width: 250px; height: 250px; background: var(--color-accent); opacity: 0.08; bottom: 10%; left: -5%; animation-delay: 2s;"></div>
+
+    <div class="container-main" style="position: relative; z-index: 10; text-align: center;">
+
+      <!-- Badge -->
+      <div class="section-tag section-tag-purple animate-fade-up" style="margin-bottom: 1.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Nuestro Equipo
+      </div>
+
+      <h1 class="hero-title animate-fade-up delay-100" style="margin-bottom: 1.25rem; font-size: clamp(2rem, 6vw, 4rem);">
+        Conoce a Nuestro <span class="gradient-text-purple">Equipo Directivo</span>
+      </h1>
+
+      <div class="team-profile reveal" style="max-width: 700px; margin: 2rem auto; text-align: left; background: var(--color-bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--color-border);">
+        <div style="display: flex; flex-direction: column; md:flex-direction: row; align-items: center; gap: 2rem;">
+          <img src="/images/profile-ceo.png" alt="Gabriel López" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--color-accent); object-fit: cover; flex-shrink: 0;">
+          <div>
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.5rem;">Gabriel López</h2>
+            <p style="font-weight: 600; color: var(--color-accent); margin-bottom: 1rem;">CEO y Gerente de Proyectos</p>
+            <p style="font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7;">
+              Líder con más de 8 años de experiencia en la intersección de la tecnología, la gestión de proyectos y la estrategia empresarial. Experto en Arquitectura Empresarial (TOGAF), Transformación Digital y Gobierno Digital. Apasionado por construir soluciones innovadoras que impulsan el crecimiento y la eficiencia.
+            </p>
+             <div class="animate-fade-up delay-300" style="margin-top: 1.5rem;">
+                <a
+                  href="/CV Esp Gabriel Lopez 2026.pdf"
+                  download="CV-Gabriel-Lopez-Intellecto.pdf"
+                  class="btn btn-purple"
+                  style="display: inline-flex; align-items: center; gap: 8px;"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  Descargar Perfil Completo (PDF)
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
