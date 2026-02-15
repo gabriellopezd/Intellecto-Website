@@ -323,18 +323,18 @@ import Layout from '../layouts/Layout.astro';
             </p>
 
             <div class="cta-form">
-              <form>
+              <form action="mailto:contacto@intellecto.com.co" method="post" enctype="text/plain">
                 <div style="margin-bottom: 1rem;">
                   <label for="name" class="form-label">Nombre</label>
-                  <input type="text" id="name" name="name" placeholder="Tu nombre" class="form-input">
+                  <input type="text" id="name" name="name" placeholder="Tu nombre" class="form-input" required>
                 </div>
                 <div style="margin-bottom: 1rem;">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" id="email" name="email" placeholder="tu@email.com" class="form-input">
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" class="form-input" required>
                 </div>
                 <div style="margin-bottom: 1.5rem;">
                   <label for="message" class="form-label">Mensaje</label>
-                  <textarea id="message" name="message" rows="4" placeholder="Cuéntenos sobre su proyecto..." class="form-input" style="resize: none;"></textarea>
+                  <textarea id="message" name="message" rows="4" placeholder="Cuéntenos sobre su proyecto..." class="form-input" style="resize: none;" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-full">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>

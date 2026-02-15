@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-/* ===== GOOGLE FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
 
 /* ===== DESIGN SYSTEM TOKENS ===== */
 :root {
@@ -34,6 +32,7 @@
 
     /* Text */
     --color-text: #f0f4f8;
+    --color-text-primary: #f0f4f8;
     --color-text-secondary: #8b9cb7;
     --color-text-muted: #5a6b85;
 
@@ -41,6 +40,7 @@
     --border-subtle: rgba(255, 255, 255, 0.05);
     --border-light: rgba(255, 255, 255, 0.08);
     --border-accent: rgba(0, 212, 255, 0.2);
+    --color-border: rgba(255, 255, 255, 0.08);
 
     /* Gradients */
     --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #0891b2 40%, #7c3aed 100%);
@@ -1404,5 +1404,19 @@ img {
 @media (min-width: 768px) {
     .footer-section {
         padding: 72px 0;
+    }
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
