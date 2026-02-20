@@ -15,24 +15,16 @@
     --color-surface-hover: #162033;
     --color-surface-elevated: #1a2742;
 
-    /* Accent - Cyan/Teal */
-    --color-accent: #00d4ff;
-    --color-accent-light: #67e8f9;
-    --color-accent-dark: #00a8cc;
-    --color-accent-glow: rgba(0, 212, 255, 0.45);
+    /* Accent - Red-Orange (from Logo) */
+    --color-accent: #ff453c;
+    --color-accent-light: #ff7066;
+    --color-accent-dark: #e03c32;
+    --color-accent-glow: rgba(255, 69, 60, 0.4);
 
-    /* Secondary - Purple */
-    --color-secondary: #a855f7;
-    --color-secondary-light: #c084fc;
-    --color-secondary-glow: rgba(168, 85, 247, 0.4);
-
-    /* Tertiary - Pink */
-    --color-pink: #ec4899;
-    --color-pink-glow: rgba(236, 72, 153, 0.35);
-
-    /* Warm accents */
-    --color-teal: #10b981;
-    --color-amber: #f59e0b;
+    /* Secondary - Sky Blue */
+    --color-secondary: #38bdf8;
+    --color-secondary-light: #7dd3fc;
+    --color-secondary-glow: rgba(56, 189, 248, 0.4);
 
     /* Text */
     --color-text: #f0f4f8;
@@ -42,23 +34,21 @@
     /* Borders */
     --border-subtle: rgba(255, 255, 255, 0.05);
     --border-light: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(0, 212, 255, 0.2);
+    --border-accent: rgba(255, 69, 60, 0.2);
 
     /* Gradients */
-    --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #0891b2 40%, #7c3aed 100%);
-    --gradient-purple-pink: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    --gradient-accent: linear-gradient(135deg, #ff453c 0%, #e03c32 100%);
+    --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
     --gradient-hero:
-        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 212, 255, 0.08) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 50% at 15% 75%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 69, 60, 0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
     --gradient-mesh:
-        radial-gradient(at 20% 10%, rgba(0, 212, 255, 0.06) 0px, transparent 50%),
-        radial-gradient(at 80% 20%, rgba(124, 58, 237, 0.05) 0px, transparent 50%),
-        radial-gradient(at 50% 90%, rgba(236, 72, 153, 0.04) 0px, transparent 50%);
+        radial-gradient(at 20% 10%, rgba(255, 69, 60, 0.06) 0px, transparent 50%),
+        radial-gradient(at 80% 20%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
 
     /* Shadows */
     --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 212, 255, 0.15);
+    --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 69, 60, 0.15);
 
     color-scheme: dark;
 }
@@ -73,24 +63,16 @@
     --color-surface-hover: #fcfdff;
     --color-surface-elevated: #ffffff;
 
-    /* Accent - Cyan/Teal */
-    --color-accent: #00a8cc;
-    --color-accent-light: #00d4ff;
-    --color-accent-dark: #0891b2;
-    --color-accent-glow: rgba(0, 168, 204, 0.3);
+    /* Accent - Red-Orange (from Logo) */
+    --color-accent: #e03c32;
+    --color-accent-light: #ff453c;
+    --color-accent-dark: #c43228;
+    --color-accent-glow: rgba(224, 60, 50, 0.3);
 
-    /* Secondary - Purple */
-    --color-secondary: #9333ea;
-    --color-secondary-light: #a855f7;
-    --color-secondary-glow: rgba(147, 51, 234, 0.3);
-
-    /* Tertiary - Pink */
-    --color-pink: #d946ef;
-    --color-pink-glow: rgba(217, 70, 239, 0.25);
-
-    /* Warm accents */
-    --color-teal: #0d9488;
-    --color-amber: #f59e0b;
+    /* Secondary - Sky Blue */
+    --color-secondary: #0ea5e9;
+    --color-secondary-light: #38bdf8;
+    --color-secondary-glow: rgba(14, 165, 233, 0.3);
 
     /* Text */
     --color-text: #0f172a;
@@ -100,23 +82,21 @@
     /* Borders */
     --border-subtle: rgba(0, 0, 0, 0.07);
     --border-light: rgba(0, 0, 0, 0.1);
-    --border-accent: rgba(0, 168, 204, 0.4);
+    --border-accent: rgba(224, 60, 50, 0.4);
 
     /* Gradients */
-    --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #0891b2 40%, #9333ea 100%);
-    --gradient-purple-pink: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    --gradient-accent: linear-gradient(135deg, #ff453c 0%, #e03c32 100%);
+    --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
     --gradient-hero:
-        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 168, 204, 0.08) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(147, 51, 234, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 50% at 15% 75%, rgba(217, 70, 239, 0.05) 0%, transparent 50%);
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(224, 60, 50, 0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(14, 165, 233, 0.06) 0%, transparent 50%);
     --gradient-mesh:
-        radial-gradient(at 20% 10%, rgba(0, 168, 204, 0.07) 0px, transparent 50%),
-        radial-gradient(at 80% 20%, rgba(147, 51, 234, 0.06) 0px, transparent 50%),
-        radial-gradient(at 50% 90%, rgba(217, 70, 239, 0.05) 0px, transparent 50%);
+        radial-gradient(at 20% 10%, rgba(224, 60, 50, 0.07) 0px, transparent 50%),
+        radial-gradient(at 80% 20%, rgba(14, 165, 233, 0.06) 0px, transparent 50%);
 
     /* Shadows */
     --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
-    --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 168, 204, 0.2);
+    --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(224, 60, 50, 0.2);
 
     color-scheme: light;
 }
@@ -355,7 +335,7 @@ img {
 }
 
 .gradient-text-animated {
-    background: linear-gradient(90deg, #a855f7, #ec4899, #00d4ff, #a855f7);
+    background: linear-gradient(90deg, #ff453c, #facc15, #38bdf8, #ff453c);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -363,8 +343,8 @@ img {
     animation: gradient-flow 5s ease infinite;
 }
 
-.gradient-text-purple {
-    background: var(--gradient-purple-pink);
+.gradient-text-secondary {
+    background: var(--gradient-secondary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -489,31 +469,6 @@ img {
 }
 
 /* Logo */
-.logo-mark {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 0.75rem;
-    color: white;
-    background: var(--gradient-accent);
-    box-shadow: 0 3px 15px var(--color-accent-glow);
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-    .logo-mark {
-        width: 40px;
-        height: 40px;
-        font-size: 0.8rem;
-    }
-}
-
 .logo-text {
     font-family: var(--font-display);
     font-weight: 700;
@@ -680,16 +635,16 @@ img {
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    background: rgba(0, 212, 255, 0.07);
-    border: 1px solid rgba(0, 212, 255, 0.15);
+    background: rgba(255, 69, 60, 0.07);
+    border: 1px solid rgba(255, 69, 60, 0.15);
     color: var(--color-accent);
     margin-bottom: 1.25rem;
 }
 
 .light .section-tag {
-    background: #cffafe;
+    background: #ffebe9;
     border-color: transparent;
-    color: #0891b2;
+    color: #e03c32;
 }
 
 @media (min-width: 768px) {
@@ -700,16 +655,16 @@ img {
     }
 }
 
-.section-tag-purple {
-    background: rgba(168, 85, 247, 0.07);
-    border-color: rgba(168, 85, 247, 0.15);
+.section-tag-secondary {
+    background: rgba(56, 189, 248, 0.07);
+    border-color: rgba(56, 189, 248, 0.15);
     color: var(--color-secondary);
 }
 
-.light .section-tag-purple {
-    background: #f3e8ff;
+.light .section-tag-secondary {
+    background: #e0f2fe;
     border-color: transparent;
-    color: #9333ea;
+    color: #0ea5e9;
 }
 
 /* ===== SECTION TITLES ===== */
@@ -1091,13 +1046,13 @@ img {
     transform: translateY(-3px);
 }
 
-.btn-purple {
-    background: var(--gradient-purple-pink);
+.btn-blue {
+    background: var(--gradient-secondary);
     color: white;
     box-shadow: 0 4px 25px var(--color-secondary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.btn-purple:hover {
+.btn-blue:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 35px var(--color-secondary-glow);
     filter: brightness(1.06);
