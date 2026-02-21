@@ -1,0 +1,169 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+const formattedDate = format(post.data.pubDate, "d 'de' MMMM, yyyy", { locale: es });
+---
+
+<Layout title={`${post.data.title} - Blog Intellecto`}>
+	<article class="post-container">
+		<!-- Post Header -->
+		<header class="post-header">
+			<div class="container-main">
+				<div class="reveal">
+					<div class="post-meta">
+						<time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+						<span class="meta-separator">•</span>
+						<span class="post-author">{post.data.author}</span>
+					</div>
+					<h1 class="post-title">{post.data.title}</h1>
+					<div class="post-tags">
+						{post.data.tags.map(tag => <span class="skill-tag">{tag}</span>)}
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Hero Image -->
+		{post.data.heroImage && (
+			<div class="post-hero-image-wrap reveal">
+				<img src={post.data.heroImage} alt={post.data.title} class="post-hero-image" />
+			</div>
+		)}
+
+		<!-- Content -->
+		<div class="container-main">
+			<div class="post-content-wrap reveal">
+				<div class="prose">
+					<Content />
+				</div>
+			</div>
+
+			<!-- Post Footer -->
+			<footer class="post-footer reveal">
+				<div class="share-box">
+					<p>¿Te gustó este artículo? Compártelo:</p>
+					<div style="display: flex; gap: 1rem; margin-top: 1rem;">
+						<a href={`https://www.linkedin.com/sharing/share-offsite/?url=${Astro.url}`} target="_blank" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;">LinkedIn</a>
+						<a href="/blog" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Volver al Blog</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.post-container {
+		padding-top: var(--nav-height);
+		background: var(--color-bg);
+	}
+	.post-header {
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+	.post-meta {
+		font-size: 0.9rem;
+		color: var(--color-accent);
+		font-weight: 600;
+		margin-bottom: 1rem;
+		letter-spacing: 0.02em;
+	}
+	.meta-separator {
+		margin: 0 0.5rem;
+		opacity: 0.5;
+	}
+	.post-title {
+		font-family: var(--font-display);
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		font-weight: 900;
+		color: var(--color-text-primary);
+		line-height: 1.1;
+		margin-bottom: 2rem;
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.post-tags {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+	.post-hero-image-wrap {
+		width: 100%;
+		max-width: 1100px;
+		margin: 0 auto 4rem;
+		padding: 0 1.5rem;
+	}
+	.post-hero-image {
+		width: 100%;
+		aspect-ratio: 21 / 9;
+		object-fit: cover;
+		border-radius: 24px;
+		box-shadow: var(--shadow-2xl);
+		border: 1px solid var(--color-border);
+	}
+	.post-content-wrap {
+		max-width: 800px;
+		margin: 0 auto 5rem;
+	}
+	
+	/* Typography override for Prose */
+	.prose :global(h2) {
+		font-family: var(--font-display);
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+		margin: 3rem 0 1.5rem;
+	}
+	.prose :global(p) {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: var(--color-text-secondary);
+		margin-bottom: 1.5rem;
+	}
+	.prose :global(blockquote) {
+		padding: 1.5rem 2rem;
+		border-left: 4px solid var(--color-accent);
+		background: var(--color-bg-secondary);
+		border-radius: 0 12px 12px 0;
+		margin: 2.5rem 0;
+		font-style: italic;
+		font-size: 1.2rem;
+		color: var(--color-text-primary);
+	}
+	.prose :global(ul) {
+		margin: 0 0 2rem 1.5rem;
+		color: var(--color-text-secondary);
+	}
+	.prose :global(li) {
+		margin-bottom: 0.75rem;
+		font-size: 1.1rem;
+	}
+
+	.post-footer {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 4rem 0;
+		border-top: 1px solid var(--color-border);
+		text-align: center;
+	}
+	.share-box p {
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+</style>

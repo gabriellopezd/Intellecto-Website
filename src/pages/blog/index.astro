@@ -1,0 +1,157 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/ui/BlogCard.astro';
+
+const allPosts = await getCollection('blog');
+
+// Sort by date desc
+const posts = allPosts.sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Group by category
+const noticias = posts.filter(p => p.data.category === 'noticia');
+const cientificos = posts.filter(p => p.data.category === 'cientifico');
+const iaSemanal = posts.filter(p => p.data.category === 'ia-semanal');
+
+const sections = [
+	{ id: 'noticias', title: 'Últimas Noticias', icon: '📰', data: noticias, color: 'var(--color-accent)' },
+	{ id: 'ciencia', title: 'Artículos Científicos', icon: '🔬', data: cientificos, color: 'var(--color-secondary)' },
+	{ id: 'ia', title: 'IA Semanal', icon: '🤖', data: iaSemanal, color: 'var(--color-amber)' }
+];
+---
+
+<Layout title="Blog y Conocimiento - Intellecto">
+	<section class="section" style="padding-top: calc(var(--nav-height) + 4rem);">
+		<div class="container-main">
+			<div class="reveal" style="text-align: center; margin-bottom: 5rem;">
+				<div class="section-tag section-tag-purple">
+					<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+					Hub de Conocimiento
+				</div>
+				<h1 class="section-title">
+					Explora nuestro <span class="gradient-text-purple">Conocimiento</span>
+				</h1>
+				<p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
+					Información estratégica dividida en tres ejes fundamentales para la toma de decisiones tecnológicas.
+				</p>
+			</div>
+
+			<!-- Navigation Anchors -->
+			<div class="blog-nav reveal">
+				{sections.map(section => (
+					<a href={`#${section.id}`} class="blog-nav-item">
+						<span class="nav-icon">{section.icon}</span>
+						<span class="nav-text">{section.title}</span>
+					</a>
+				))}
+			</div>
+
+			<!-- Blog Sections -->
+			{sections.map((section) => (
+				<div id={section.id} class="blog-section-block">
+					<div class="section-header-mini reveal">
+						<h2 class="mini-title">
+							<span style={`color: ${section.color}; margin-right: 10px;`}>{section.icon}</span>
+							{section.title}
+						</h2>
+						<div class="title-line" style={`background: ${section.color};`}></div>
+					</div>
+
+					{section.data.length > 0 ? (
+						<div class="blog-grid">
+							{section.data.map((post) => (
+								<BlogCard 
+									title={post.data.title}
+									description={post.data.description}
+									pubDate={post.data.pubDate}
+									heroImage={post.data.heroImage}
+									url={`/blog/${post.slug}`}
+									tags={post.data.tags}
+									category={post.data.category}
+								/>
+							))}
+						</div>
+					) : (
+						<div class="empty-state reveal">
+							<p>Próximamente más contenido en esta sección.</p>
+						</div>
+					)}
+				</div>
+			))}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.blog-nav {
+		display: flex;
+		justify-content: center;
+		gap: 1.5rem;
+		margin-bottom: 6rem;
+		flex-wrap: wrap;
+	}
+	.blog-nav-item {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 12px 24px;
+		background: var(--color-bg-secondary);
+		border: 1px solid var(--color-border);
+		border-radius: 16px;
+		text-decoration: none;
+		color: var(--color-text-primary);
+		font-weight: 600;
+		font-size: 0.95rem;
+		transition: all 0.3s ease;
+		box-shadow: var(--shadow-sm);
+	}
+	.blog-nav-item:hover {
+		transform: translateY(-5px);
+		border-color: var(--color-accent);
+		background: var(--color-surface-hover);
+		box-shadow: var(--shadow-md);
+	}
+	.nav-icon {
+		font-size: 1.25rem;
+	}
+	
+	.blog-section-block {
+		margin-bottom: 8rem;
+		scroll-margin-top: calc(var(--nav-height) + 2rem);
+	}
+	.section-header-mini {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+	.mini-title {
+		font-family: var(--font-display);
+		font-size: 1.75rem;
+		font-weight: 800;
+		color: var(--color-text-primary);
+		white-space: nowrap;
+	}
+	.title-line {
+		height: 1px;
+		flex: 1;
+		opacity: 0.2;
+	}
+	
+	.blog-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+		gap: 2.5rem;
+	}
+	
+	.empty-state {
+		text-align: center;
+		padding: 4rem;
+		background: var(--color-bg-secondary);
+		border-radius: 20px;
+		border: 1px dashed var(--color-border);
+		color: var(--color-text-muted);
+	}
+</style>

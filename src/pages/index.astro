@@ -1,306 +1,157 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import ServiceCard from '../components/sections/ServiceCard.astro';
+import BlogCard from '../components/ui/BlogCard.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+import Button from '../components/ui/Button.astro';
+import GlassCard from '../components/ui/GlassCard.astro';
+const recentPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const featuredProjects = [
+	{
+		title: "Programa de Transformación Digital del Sector Justicia",
+		client: "Ministerio de Justicia y del Derecho",
+		role: "Arquitecto Empresarial y Líder de Proyectos",
+		category: "transformacion",
+		description: "Liderazgo estratégico para la modernización tecnológica del sistema de justicia colombiano bajo el marco de Gobierno Digital.",
+		tech: ["TOGAF", "COBIT", "Agile"],
+		results: ["Estandarización de procesos TI", "Modernización tecnológica"]
+	},
+	{
+		title: "Gobierno de Datos y Plataforma Analítica",
+		client: "Ministerio de Justicia y del Derecho",
+		role: "Arquitecto de Datos",
+		category: "datos",
+		description: "Diseño de capacidades analíticas avanzadas y procesos ETL para optimizar la toma de decisiones basada en evidencia.",
+		tech: ["SQL", "Power BI", "Python"],
+		results: ["Procesos ETL automatizados", "Dashboard de control"]
+	}
+];
+
+const services = [
+  {
+    title: "Arquitectura Empresarial",
+    description: "Alineamos su tecnología con la estrategia corporativa mediante TOGAF y marcos líderes.",
+    href: "/servicios#arquitectura-empresarial",
+    backgroundImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Transformación Digital",
+    description: "Modernizamos procesos y adoptamos nuevas tecnologías para la era digital.",
+    href: "/servicios#transformacion-digital",
+    backgroundImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Consultoría TI",
+    description: "Soluciones tecnológicas robustas para resolver desafíos complejos.",
+    href: "/servicios#consultoria-ti",
+    backgroundImage: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Gobierno Digital",
+    description: "Asesoría en políticas públicas digitales y servicios para el ciudadano.",
+    href: "/servicios#gobierno-digital",
+    backgroundImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800"
+  }
+];
 ---
 
 <Layout title="Intellecto - Transformación Digital y Arquitectura Empresarial">
 
-  <!-- ===== HERO SECTION ===== -->
-  <section style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; padding-top: var(--nav-height); background: var(--color-bg);">
-
-    <!-- Background layers -->
-    <div style="position: absolute; inset: 0; background: var(--gradient-hero);"></div>
-    <div style="position: absolute; inset: 0; background: var(--gradient-mesh);"></div>
-    <div class="decoration-grid"></div>
-
-    <!-- Animated orbs -->
-    <div class="glow-orb animate-float" style="width: 350px; height: 350px; background: var(--color-accent); opacity: 0.12; top: -5%; right: -10%;"></div>
-    <div class="glow-orb animate-float-reverse" style="width: 300px; height: 300px; background: var(--color-secondary); opacity: 0.10; bottom: 5%; left: -10%;"></div>
-
-    <!-- Hero Content -->
-    <div class="container-main" style="position: relative; z-index: 10;">
-      <div class="hero-content">
-
-        <!-- Badge -->
-        <div class="section-tag animate-fade-up" style="margin-bottom: 1.5rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin-slow" style="animation-duration: 4s;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-          Estrategia y Tecnología
-        </div>
-
-        <!-- Title -->
-        <h1 class="hero-title animate-fade-up delay-100" style="margin-bottom: 1.25rem;">
-          Bienvenido a <span class="gradient-text-animated">Intellecto</span>
-        </h1>
-
-        <!-- Tagline -->
-        <p class="hero-tagline animate-fade-up delay-200">
-          Especialistas en Transformación Digital, Arquitectura Empresarial, Gestión de Proyectos TI, Gobierno Digital e Inteligencia Artificial.
-        </p>
-
-        <!-- Buttons -->
-        <div class="hero-buttons animate-fade-up delay-400">
-          <a href="/portafolio" class="btn btn-primary">
-            Explorar Proyectos
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            Contáctanos
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <a href="#services" class="scroll-indicator animate-fade-up delay-800" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);">
-      <span>Descubre más</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-    </a>
-  </section>
+  <Hero 
+    badge="Estrategia y Tecnología para el Futuro"
+    title='Bienvenido a <span class="gradient-text-animated">Intellecto</span>'
+    subtitle="Impulsamos la Transformación Digital con soluciones de vanguardia en Arquitectura Empresarial, IA y Gobierno Digital."
+  />
 
   <!-- ===== SERVICES SECTION ===== -->
-  <section id="services" class="section" style="background: var(--color-bg);">
+  <section id="servicios" class="section" style="background: radial-gradient(circle at 70% 20%, rgba(var(--color-accent-rgb), 0.03), transparent 40%);">
     <div class="container-main">
-      <!-- Section Header -->
-      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
-        <div class="section-tag">
-           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.063 2.365 12.48a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.581-6.135a.5.5 0 0 1 .964 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-          Servicios
-        </div>
-        <h2 class="section-title">
-          Nuestras <span class="gradient-text">Soluciones</span>
-        </h2>
-        <p class="section-subtitle" style="margin: 0 auto;">
-          Soluciones integrales para impulsar la modernización y la eficiencia.
-        </p>
+      <div class="reveal" style="text-align: center; margin-bottom: 5rem;">
+        <div class="section-tag section-tag-blue">Nuestras Capacidades</div>
+        <h2 class="section-title">Soluciones <span class="gradient-text">Estratégicas</span></h2>
+        <p class="section-subtitle" style="margin: 1.5rem auto 0; max-width: 600px;">Arquitectura de alto nivel para organizaciones que buscan el liderazgo digital.</p>
       </div>
 
-      <!-- Service Cards -->
-      <div class="grid-1-2-4">
-        <!-- Card 1 -->
-        <div class="reveal" style="transition-delay: 100ms;">
-          <a href="/servicios#arquitectura-empresarial" class="project-card" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
-            <div class="project-card-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title small">Arquitectura Empresarial</h3>
-              <p class="project-card-desc small">Diseñamos la arquitectura que conecta estrategia, procesos, datos y tecnología.</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="reveal" style="transition-delay: 200ms;">
-          <a href="/servicios#transformacion-digital" class="project-card" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
-            <div class="project-card-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title small">Transformación Digital</h3>
-              <p class="project-card-desc small">Convertimos la estrategia digital en proyectos reales y ejecutables.</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="reveal" style="transition-delay: 300ms;">
-          <a href="/servicios#consultoria-ti" class="project-card" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
-            <div class="project-card-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title small">Consultoría TI</h3>
-              <p class="project-card-desc small">Diseñamos soluciones tecnológicas escalables, seguras y sostenibles.</p>
-            </div>
-          </a>
-        </div>
-        
-        <!-- Card 4 -->
-        <div class="reveal" style="transition-delay: 400ms;">
-          <a href="/servicios#gobierno-digital" class="project-card" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
-            <div class="project-card-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title small">Gobierno Digital</h3>
-              <p class="project-card-desc small">Implementamos políticas y capacidades de gobierno digital.</p>
-            </div>
-          </a>
-        </div>
+      <div class="grid-1-2-3" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
+        <ServiceCard 
+          title="Arquitectura Empresarial" 
+          description="Diseñamos el roadmap tecnológico alineado con sus objetivos corporativos más ambiciosos."
+          backgroundImage=""
+          href="/servicios#arquitectura"
+          isMinimal={true}
+        />
+        <ServiceCard 
+          title="Transformación Digital" 
+          description="Aceleramos la adopción de tecnologías emergentes para modernizar su operación y cultura."
+          backgroundImage="" 
+          href="/servicios#transformacion"
+          isMinimal={true}
+        />
+        <ServiceCard 
+          title="Gobierno de Datos" 
+          description="Estructuramos, protegemos y sacamos valor de su activo más valioso: la información."
+          backgroundImage=""
+          href="/servicios#datos"
+          isMinimal={true}
+        />
       </div>
     </div>
   </section>
 
-  <!-- ===== TECH STACK SECTION ===== -->
-  <section class="section" style="background: var(--color-bg-secondary);">
-    <div class="section-divider" style="margin-bottom: 3rem;"></div>
+  <!-- ===== FEATURED PROJECTS SECTION ===== -->
+  <section id="casos-exito" class="section" style="background: rgba(var(--color-bg-rgb), 0.3); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
     <div class="container-main">
-      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
-        <div class="section-tag section-tag-purple">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-          Herramientas
+      <header class="hub-header reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: clamp(1rem, 3vw, 2rem); margin-bottom: clamp(3rem, 8vw, 5rem); flex-wrap: wrap;">
+        <div class="hub-title-area">
+          <div class="section-tag section-tag-purple">Expertise Comprobada</div>
+          <h2 class="section-title">Casos de <span class="gradient-text">Impacto Real</span></h2>
+          <p class="section-subtitle">Exhibición de hitos estratégicos y transformación de gran escala.</p>
         </div>
-        <h2 class="section-title">
-          Nuestra Caja de <span class="gradient-text-purple">Herramientas</span>
-        </h2>
-      </div>
+        <div class="hub-cta">
+          <Button href="/portafolio" variant="blue">Ir al Portafolio completo</Button>
+        </div>
+      </header>
 
-      <div class="grid-1-2-3">
-        <!-- Technologies -->
-        <div class="glass-card stack-card reveal" style="transition-delay: 100ms;">
-          <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(0, 212, 255, 0.1); flex-shrink: 0;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-            </div>
-            Tecnologías
-          </h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Astro</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">Python</span>
-          </div>
-        </div>
-
-        <!-- Methodologies -->
-        <div class="glass-card stack-card reveal" style="transition-delay: 200ms;">
-          <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-secondary); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(168, 85, 247, 0.1); flex-shrink: 0;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            Metodologías
-          </h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="skill-tag">Agile</span>
-            <span class="skill-tag">Scrum</span>
-            <span class="skill-tag">Lean</span>
-            <span class="skill-tag">Design Thinking</span>
-            <span class="skill-tag">PMBOK</span>
-          </div>
-        </div>
-
-        <!-- Management -->
-        <div class="glass-card stack-card reveal" style="transition-delay: 300ms;">
-          <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-teal); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.1); flex-shrink: 0;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
-            </div>
-            Gestión & Arquitectura
-          </h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="skill-tag">TOGAF</span>
-            <span class="skill-tag">ArchiMate</span>
-            <span class="skill-tag">COBIT</span>
-            <span class="skill-tag">ITIL</span>
-            <span class="skill-tag">MRAE</span>
-            <span class="skill-tag">BPM</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- ===== STATS SECTION ===== -->
-  <section class="section" style="background: var(--color-bg);">
-    <div class="container-main">
-      <div class="reveal" style="text-align: center; margin-bottom: 2.5rem;">
-        <div class="section-tag">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-          Resultados
-        </div>
-        <h2 class="section-title">
-          Impacto en <span class="gradient-text">Números</span>
-        </h2>
-      </div>
-
-      <div class="grid-2-4">
-        <div class="glass-card stat-card reveal" style="transition-delay: 100ms;">
-          <div class="stat-icon" style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.15);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
-          </div>
-          <div class="stat-number gradient-text">8+</div>
-          <div class="stat-label">Años de Experiencia</div>
-        </div>
-
-        <div class="glass-card stat-card reveal" style="transition-delay: 200ms;">
-          <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.15);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-          </div>
-          <div class="stat-number" style="background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">15+</div>
-          <div class="stat-label">Proyectos Entregados</div>
-        </div>
-
-        <div class="glass-card stat-card reveal" style="transition-delay: 300ms;">
-          <div class="stat-icon" style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.15);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          </div>
-          <div class="stat-number" style="background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">5+</div>
-          <div class="stat-label">Sectores Atendidos</div>
-        </div>
-
-        <div class="glass-card stat-card reveal" style="transition-delay: 400ms;">
-          <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.15);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="stat-number" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">100%</div>
-          <div class="stat-label">Clientes Satisfechos</div>
-        </div>
+      <div class="featured-projects-list" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.5vw, 1rem);">
+        {featuredProjects.map(project => (
+          <ProjectCard {...project} isUltraCompact={true} />
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- ===== BLOG SECTION ===== -->
-  <section class="section" style="background: var(--color-bg-secondary);">
-     <div class="section-divider" style="margin-bottom: 3rem;"></div>
+  <!-- ===== KNOWLEDGE HUB SECTION (BLOG) ===== -->
+  <section id="blog" class="section" style="background: radial-gradient(circle at 10% 80%, rgba(var(--color-secondary-rgb), 0.03), transparent 40%);">
     <div class="container-main">
-      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
-        <div class="section-tag section-tag-purple">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
-          Conocimiento
+      <header class="hub-header reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: clamp(1rem, 3vw, 2rem); margin-bottom: clamp(3rem, 8vw, 5rem); flex-wrap: wrap;">
+        <div class="hub-title-area">
+          <div class="section-tag section-tag-amber">Centro de Conocimiento</div>
+          <h2 class="section-title">Radar de <span class="gradient-text">Innovación</span></h2>
+          <p class="section-subtitle">Insights profundos sobre arquitectura, estrategia y el futuro de la IA.</p>
         </div>
-        <h2 class="section-title">
-          Nuestro <span class="gradient-text-purple">Blog</span>
-        </h2>
-         <p class="section-subtitle" style="margin: 0 auto;">
-          Artículos y guías sobre tecnología, estrategia y transformación.
-        </p>
-      </div>
-
-      <div class="grid-1-2-3">
-        <div class="news-card reveal" style="transition-delay: 100ms;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(0, 212, 255, 0.08); margin-bottom: 1rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
-          </div>
-          <h3 class="news-card-title">Desplegando Astro en Firebase</h3>
-          <p class="news-card-desc">Una guía paso a paso para llevar tu proyecto de Astro a producción con Firebase Hosting.</p>
-          <a href="#" class="news-card-link" style="color: var(--color-accent);">
-            Leer más
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+        <div class="hub-cta">
+          <Button href="/blog" variant="secondary">Ir al Blog completo</Button>
         </div>
-
-        <div class="news-card reveal" style="transition-delay: 200ms;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(168, 85, 247, 0.08); margin-bottom: 1rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
-          </div>
-          <h3 class="news-card-title">El poder de la Arquitectura Empresarial</h3>
-          <p class="news-card-desc">Cómo los principios de TOGAF pueden transformar la estrategia de TI.</p>
-          <a href="#" class="news-card-link" style="color: var(--color-secondary);">
-            Leer más
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="news-card reveal" style="transition-delay: 300ms;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.08); margin-bottom: 1rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-          </div>
-          <h3 class="news-card-title">React vs. Astro: ¿Cuándo usar cada uno?</h3>
-          <p class="news-card-desc">Un análisis comparativo sobre estas dos tecnologías para desarrollo web.</p>
-          <a href="#" class="news-card-link" style="color: var(--color-teal);">
-            Leer más
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
+      </header>
+      
+      <div class="grid-1-2-3" style="gap: clamp(1.5rem, 3vw, 2rem);">
+        {recentPosts.map((post) => (
+          <BlogCard 
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            heroImage={post.data.heroImage}
+            url={`/blog/${post.slug}`}
+            tags={post.data.tags}
+            category={post.data.category}
+            isMinimal={true}
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -309,10 +160,10 @@ import Layout from '../layouts/Layout.astro';
   <section id="contact" class="section" style="background: var(--color-bg);">
     <div class="container-main">
       <div class="reveal">
-        <div class="glass-card cta-card-inner" style="position: relative; overflow: hidden; border-color: rgba(0, 212, 255, 0.1); background: linear-gradient(155deg, rgba(0, 212, 255, 0.04) 0%, rgba(168, 85, 247, 0.04) 100%);">
+        <GlassCard class="cta-card-inner" style="position: relative; overflow: hidden; border-color: var(--border-light); background: var(--color-bg-secondary);">
           <!-- Orbs -->
-          <div class="glow-orb animate-pulse-glow" style="width: 180px; height: 180px; background: var(--color-accent); opacity: 0.12; top: -50px; left: -50px;"></div>
-          <div class="glow-orb animate-pulse-glow" style="width: 200px; height: 200px; background: var(--color-secondary); opacity: 0.10; bottom: -60px; right: -60px; animation-delay: 2s;"></div>
+          <div class="glow-orb animate-pulse-glow" style="width: 180px; height: 180px; background: var(--color-accent); opacity: 0.08; top: -50px; left: -50px;"></div>
+          <div class="glow-orb animate-pulse-glow" style="width: 200px; height: 200px; background: var(--color-secondary); opacity: 0.06; bottom: -60px; right: -60px; animation-delay: 2s;"></div>
 
           <div style="position: relative; z-index: 10; text-align: center;">
             <h2 class="section-title" style="margin-bottom: 0.75rem;">
@@ -324,26 +175,26 @@ import Layout from '../layouts/Layout.astro';
 
             <div class="cta-form">
               <form>
-                <div style="margin-bottom: 1rem;">
+                <div style="margin-bottom: 1rem; text-align: left;">
                   <label for="name" class="form-label">Nombre</label>
                   <input type="text" id="name" name="name" placeholder="Tu nombre" class="form-input">
                 </div>
-                <div style="margin-bottom: 1rem;">
+                <div style="margin-bottom: 1rem; text-align: left;">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" id="email" name="email" placeholder="tu@email.com" class="form-input">
                 </div>
-                <div style="margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 1.5rem; text-align: left;">
                   <label for="message" class="form-label">Mensaje</label>
                   <textarea id="message" name="message" rows="4" placeholder="Cuéntenos sobre su proyecto..." class="form-input" style="resize: none;"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                <Button type="submit" full={true}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
                   Enviar Mensaje
-                </button>
+                </Button>
               </form>
             </div>
           </div>
-        </div>
+        </GlassCard>
       </div>
     </div>
   </section>

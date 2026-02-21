@@ -1,5 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/sections/ServiceCard.astro';
+import Button from '../components/ui/Button.astro';
+
+const services = [
+  {
+    id: "arquitectura-empresarial",
+    title: "Arquitectura Empresarial",
+    shortDesc: "Diseñamos la arquitectura que conecta estrategia, procesos, datos y tecnología.",
+    description: "Definimos la arquitectura integral de la organización para alinear negocio y tecnología, reducir complejidad, optimizar inversiones y habilitar la transformación digital sostenible. Ayudamos a entender cómo funciona hoy la organización (AS-IS) y a diseñar cómo debe funcionar en el futuro (TO-BE).",
+    includes: [
+      "Arquitectura de negocio, datos, aplicaciones y tecnología",
+      "Modelado AS-IS / TO-BE",
+      "Roadmap de transformación",
+      "Gobierno de arquitectura y estándares"
+    ],
+    techStack: ["TOGAF", "ArchiMate", "MRAE", "BPM", "ABACUS", "Mega HOPEX"]
+  },
+  {
+    id: "transformacion-digital",
+    title: "Transformación Digital",
+    shortDesc: "Convertimos la estrategia digital en proyectos reales y ejecutables.",
+    description: "Acompañamos a las organizaciones en el diseño y ejecución de su transformación digital, integrando procesos, cultura, tecnología y datos. Nuestro enfoque va más allá de la tecnología: impulsamos cambios organizacionales que generan valor real.",
+    includes: [
+      "Estrategia y hoja de ruta digital",
+      "Modernización y automatización de procesos",
+      "Gestión del portafolio y del cambio"
+    ],
+    techStack: ["Agile", "Scrum", "Lean", "Design Thinking", "PMBOK"]
+  },
+  {
+    id: "consultoria-ti",
+    title: "Consultoría TI",
+    shortDesc: "Diseñamos soluciones tecnológicas escalables, seguras y sostenibles.",
+    description: "Apoyamos la toma de decisiones tecnológicas mediante diseño de arquitecturas de solución, modernización de plataformas y optimización del ecosistema TI. Nos enfocamos en crear soluciones robustas y alineadas a la estrategia del negocio.",
+    includes: [
+      "Arquitectura de soluciones y de datos",
+      "Estrategia cloud y modernización",
+      "Analítica y Business Intelligence"
+    ],
+    techStack: ["Cloud", "APIs", "BI", "SQL", "Python", "Power BI"]
+  },
+  {
+    id: "gobierno-digital",
+    title: "Gobierno Digital",
+    shortDesc: "Implementamos políticas y capacidades de gobierno digital, especialmente en el sector público.",
+    description: "Acompañamos a entidades públicas en la implementación de políticas de Gobierno Digital y marcos regulatorios, fortaleciendo la gestión tecnológica y la prestación de servicios digitales. Orientado a sector público LATAM.",
+    includes: [
+      "Implementación de políticas de Gobierno Digital",
+      "Gobierno de TI y datos",
+      "Fortalecimiento de capacidades institucionales"
+    ],
+    techStack: ["MRAE", "COBIT", "ITIL", "Gobierno Digital LATAM"]
+  }
+];
 ---
 
 <Layout title="Servicios - Intellecto">
@@ -25,110 +79,25 @@ import Layout from '../layouts/Layout.astro';
   <section class="section">
     <div class="container-main">
       <div class="services-grid">
-
-        <!-- Service 1: Arquitectura Empresarial -->
-        <div id="arquitectura-empresarial" class="glass-card service-item reveal">
-          <div class="service-header">
-            <h3 class="service-title">Arquitectura Empresarial</h3>
-            <p class="service-short-desc">Diseñamos la arquitectura que conecta estrategia, procesos, datos y tecnología.</p>
-          </div>
-          <div class="service-details">
-            <p>Definimos la arquitectura integral de la organización para alinear negocio y tecnología, reducir complejidad, optimizar inversiones y habilitar la transformación digital sostenible.</p>
-            <p>Ayudamos a entender cómo funciona hoy la organización (AS-IS) y a diseñar cómo debe funcionar en el futuro (TO-BE).</p>
-            <h4 class="includes-title">Qué incluye</h4>
-            <ul class="includes-list">
-              <li>Arquitectura de negocio, datos, aplicaciones y tecnología</li>
-              <li>Modelado AS-IS / TO-BE</li>
-              <li>Roadmap de transformación</li>
-              <li>Gobierno de arquitectura y estándares</li>
-            </ul>
-            <h4 class="tech-stack-title">Marcos y herramientas</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">TOGAF</span>
-              <span class="skill-tag">ArchiMate</span>
-              <span class="skill-tag">MRAE</span>
-              <span class="skill-tag">BPM</span>
-              <span class="skill-tag">ABACUS</span>
-              <span class="skill-tag">Mega HOPEX</span>
+        {services.map((service) => (
+          <div id={service.id} class="glass-card service-item reveal">
+            <div class="service-header">
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-short-desc">{service.shortDesc}</p>
+            </div>
+            <div class="service-details">
+              <p>{service.description}</p>
+              <h4 class="includes-title">Qué incluye</h4>
+              <ul class="includes-list">
+                {service.includes.map(item => <li>{item}</li>)}
+              </ul>
+              <h4 class="tech-stack-title">Marcos y herramientas</h4>
+              <div class="tech-stack">
+                {service.techStack.map(tech => <span class="skill-tag">{tech}</span>)}
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- Service 2: Transformación Digital -->
-        <div id="transformacion-digital" class="glass-card service-item reveal">
-          <div class="service-header">
-            <h3 class="service-title">Transformación Digital</h3>
-            <p class="service-short-desc">Convertimos la estrategia digital en proyectos reales y ejecutables.</p>
-          </div>
-          <div class="service-details">
-            <p>Acompañamos a las organizaciones en el diseño y ejecución de su transformación digital, integrando procesos, cultura, tecnología y datos. Nuestro enfoque va más allá de la tecnología: impulsamos cambios organizacionales que generan valor real.</p>
-            <h4 class="includes-title">Qué incluye</h4>
-            <ul class="includes-list">
-              <li>Estrategia y hoja de ruta digital</li>
-              <li>Modernización y automatización de procesos</li>
-              <li>Gestión del portafolio y del cambio</li>
-            </ul>
-            <h4 class="tech-stack-title">Metodologías</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">Agile</span>
-              <span class="skill-tag">Scrum</span>
-              <span class="skill-tag">Lean</span>
-              <span class="skill-tag">Design Thinking</span>
-              <span class="skill-tag">PMBOK</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 3: Consultoría TI -->
-        <div id="consultoria-ti" class="glass-card service-item reveal">
-          <div class="service-header">
-            <h3 class="service-title">Consultoría TI</h3>
-            <p class="service-short-desc">Diseñamos soluciones tecnológicas escalables, seguras y sostenibles.</p>
-          </div>
-          <div class="service-details">
-            <p>Apoyamos la toma de decisiones tecnológicas mediante diseño de arquitecturas de solución, modernización de plataformas y optimización del ecosistema TI. Nos enfocamos en crear soluciones robustas y alineadas a la estrategia del negocio.</p>
-            <h4 class="includes-title">Qué incluye</h4>
-            <ul class="includes-list">
-              <li>Arquitectura de soluciones y de datos</li>
-              <li>Estrategia cloud y modernización</li>
-              <li>Analítica y Business Intelligence</li>
-            </ul>
-            <h4 class="tech-stack-title">Tecnologías</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">Cloud</span>
-              <span class="skill-tag">APIs</span>
-              <span class="skill-tag">BI</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Power BI</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 4: Gobierno Digital -->
-        <div id="gobierno-digital" class="glass-card service-item reveal">
-          <div class="service-header">
-            <h3 class="service-title">Gobierno Digital</h3>
-            <p class="service-short-desc">Implementamos políticas y capacidades de gobierno digital, especialmente en el sector público.</p>
-          </div>
-          <div class="service-details">
-            <p>Acompañamos a entidades públicas en la implementación de políticas de Gobierno Digital y marcos regulatorios, fortaleciendo la gestión tecnológica y la prestación de servicios digitales. Orientado a sector público LATAM.</p>
-            <h4 class="includes-title">Qué incluye</h4>
-            <ul class="includes-list">
-              <li>Implementación de políticas de Gobierno Digital</li>
-              <li>Gobierno de TI y datos</li>
-              <li>Fortalecimiento de capacidades institucionales</li>
-            </ul>
-            <h4 class="tech-stack-title">Marcos</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">MRAE</span>
-              <span class="skill-tag">COBIT</span>
-              <span class="skill-tag">ITIL</span>
-              <span class="skill-tag">Gobierno Digital LATAM</span>
-            </div>
-          </div>
-        </div>
-
+        ))}
       </div>
     </div>
   </section>
@@ -141,7 +110,7 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="cta-title">¿Listo para impulsar la transformación digital de tu organización?</h2>
           <p class="cta-subtitle">Conversemos sobre tu proyecto.</p>
         </div>
-        <a href="#contact" class="btn btn-primary cta-btn">Enviar Mensaje</a>
+        <Button href="#contact" class="cta-btn">Enviar Mensaje</Button>
       </div>
     </div>
   </section>

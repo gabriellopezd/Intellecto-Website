@@ -1,0 +1,55 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  badge?: string;
+}
+
+const { title, subtitle, badge } = Astro.props;
+---
+
+<section style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; padding-top: var(--nav-height); background: var(--color-bg);">
+  <!-- Background layers -->
+  <div style="position: absolute; inset: 0; background: var(--gradient-hero);"></div>
+  <div style="position: absolute; inset: 0; background: var(--gradient-mesh);"></div>
+  <div class="decoration-grid"></div>
+
+  <!-- Animated orbs -->
+  <div class="glow-orb animate-float" style="width: 350px; height: 350px; background: var(--color-accent); opacity: 0.12; top: -5%; right: -10%;"></div>
+  <div class="glow-orb animate-float-reverse" style="width: 300px; height: 300px; background: var(--color-secondary); opacity: 0.10; bottom: 5%; left: -10%;"></div>
+
+  <!-- Hero Content -->
+  <div class="container-main" style="position: relative; z-index: 10;">
+    <div class="hero-content">
+      {badge && (
+        <div class="section-tag animate-fade-up" style="margin-bottom: 1.5rem; backdrop-filter: blur(8px);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin-slow" style="animation-duration: 4s;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+          {badge}
+        </div>
+      )}
+
+      <h1 class="hero-title animate-fade-up delay-100" style="margin-bottom: 1.5rem; text-shadow: 0 10px 30px rgba(0,0,0,0.1);" set:html={title} />
+
+      <p class="hero-tagline animate-fade-up delay-200" style="max-width: 700px; margin-left: auto; margin-right: auto; font-size: 1.15rem; color: var(--color-text-secondary); margin-bottom: 2.5rem;">
+        {subtitle}
+      </p>
+
+      <div class="hero-buttons animate-fade-up delay-400" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <Button href="/portafolio" style="padding: 14px 36px; font-size: 1rem;">
+          Explorar Proyectos
+        </Button>
+        <Button href="#contact" variant="secondary" style="padding: 14px 36px; font-size: 1rem;">
+          Contáctanos
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <a href="#services" class="scroll-indicator animate-fade-up delay-800" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--color-text-muted); font-size: 0.8rem; font-weight: 500;">
+    <span>Descubre más</span>
+    <svg class="animate-bounce-gentle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </a>
+</section>

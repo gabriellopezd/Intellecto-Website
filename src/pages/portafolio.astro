@@ -1,278 +1,320 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+
+const projects = [
+	{
+		title: "Programa de Transformación Digital del Sector Justicia",
+		client: "Ministerio de Justicia y del Derecho – Colombia",
+		role: "Arquitecto Empresarial y Líder de Proyectos",
+		period: "2021 – 2025",
+		category: "transformacion",
+		description: "Liderazgo de la planificación y ejecución de iniciativas de transformación digital bajo enfoque de Arquitectura Empresarial, alineadas con Gobierno Digital y estrategia sectorial del sistema de justicia colombiano.",
+		tech: ["TOGAF", "COBIT", "SCRUM / Agile", "Power BI"],
+		results: [
+			"Liderazgo de ejercicios institucionales de Arquitectura Empresarial.",
+			"Modernización y estandarización de procesos y políticas TI.",
+			"Fortalecimiento del gobierno tecnológico del ministerio."
+		]
+	},
+	{
+		title: "Hoja de Ruta de Transformación con Arquitectura Empresarial",
+		client: "Centro Nacional de Memoria Histórica – Colombia",
+		role: "Arquitecto Empresarial y Líder de Proyectos",
+		period: "2024 – 2025",
+		category: "ea",
+		description: "Diseño e implementación del marco de Arquitectura Empresarial para impulsar la transformación digital institucional mediante la optimización de procesos, sistemas y gestión de la información.",
+		tech: ["MRAE MinTIC", "TOGAF", "BPM", "SCRUM / Agile"],
+		results: [
+			"Roadmap institucional de transformación digital.",
+			"Portafolio de proyectos priorizados para cierre de brechas."
+		]
+	},
+	{
+		title: "Arquitectura Digital Nacional de Migración",
+		client: "Ministerio del Interior – Ecuador (BID / Wegital)",
+		role: "Arquitecto Empresarial y de Datos",
+		category: "ea",
+		description: "Definición de arquitectura de solución para modernización de los servicios digitales de la Subsecretaría de Migración del Ecuador.",
+		tech: ["TOGAF", "Arquitectura de Datos", "SQL / Python"],
+		results: ["Arquitectura de solución definida para el sector migración."]
+	},
+	{
+		title: "Transformación Digital de Migración Colombia",
+		client: "Migración Colombia – MinRelaciones Exteriores",
+		role: "Arquitecto de Procesos y de Datos",
+		category: "transformacion",
+		description: "Definición de Arquitectura Empresarial para impulsar la transformación digital de los servicios migratorios nacionales.",
+		tech: ["BPM / Agile", "TOGAF", "SQL / Python"],
+		results: ["Arquitectura Empresarial definida para habilitar la transformación digital."]
+	},
+	{
+		title: "Modernización de Procesos del Sector Público",
+		client: "Instituto Nacional de Aprendizaje – Costa Rica",
+		role: "Arquitecto Empresarial",
+		category: "ea",
+		description: "Consultoría para la definición de la arquitectura de procesos de una institución nacional de formación y empleo.",
+		tech: ["BPM", "Arquitectura Empresarial", "TOGAF / COBIT"],
+		results: ["Arquitectura de procesos institucional definida."]
+	},
+	{
+		title: "Gobierno de Datos y Plataforma Analítica",
+		client: "Ministerio de Justicia y del Derecho",
+		role: "Arquitecto de Datos y Procesos",
+		category: "datos",
+		description: "Diseño e implementación de capacidades de gobierno de datos, BI y procesos ETL para soporte a la toma de decisiones.",
+		tech: ["SQL", "ETL", "Power BI", "Python"],
+		results: [
+			"Procesos ETL implementados.",
+			"Capacidades analíticas para toma de decisiones."
+		]
+	},
+	{
+		title: "Portal Web de Gobierno Inteligente",
+		client: "Alcaldía de Montería",
+		role: "Líder de Gobierno Digital y Arquitecto de Sistemas",
+		category: "transformacion",
+		description: "Liderazgo de la implementación del portal web institucional bajo enfoque de Arquitectura de Solución.",
+		tech: ["HTML / CSS / JS", "Arquitectura de Solución"],
+		results: ["Portal web institucional implementado."]
+	}
+];
+
+const filterCategories = [
+	{ id: 'all', label: 'Todos', color: 'var(--color-text-primary)' },
+	{ id: 'ea', label: 'Arquitectura Empresarial', color: '#60a5fa' },
+	{ id: 'transformacion', label: 'Transformación Digital', color: '#c084fc' },
+	{ id: 'datos', label: 'Gobierno de Datos', color: '#2dd4bf' }
+];
 ---
 
-<Layout title="Portafolio de Soluciones - Intellecto">
-  <!-- ===== PORTFOLIO HERO SECTION ===== -->
-  <section class="section" style="padding-top: calc(var(--nav-height) + 3rem); text-align: center;">
-    <div class="container-main">
-      <div class="reveal">
-        <div class="section-tag">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-          Casos de Éxito
-        </div>
-        <h1 class="section-title">
-          Nuestro <span class="gradient-text">Portafolio</span>
-        </h1>
-        <p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
-          Proyectos de Arquitectura Empresarial, Transformación Digital y Gobierno de Datos que han generado un impacto medible.
-        </p>
-      </div>
-    </div>
-  </section>
+<Layout title="Portafolio Premium - Intellecto">
+	<div class="portafolio-bg-elements">
+		<div class="blob-1"></div>
+		<div class="blob-2"></div>
+	</div>
 
-  <!-- ===== PROJECTS LIST ===== -->
-  <section class="section">
-    <div class="container-main">
-      <div class="project-list">
+	<!-- ===== PORTFOLIO HERO SECTION ===== -->
+	<section class="section" style="padding-top: calc(var(--nav-height) + 4rem); text-align: center; position: relative;">
+		<div class="container-main">
+			<div class="reveal">
+				<div class="section-tag section-tag-purple">
+					<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+					Expertise Comprobada
+				</div>
+				<h1 class="section-title">
+					Nuestros <span class="gradient-text">Casos de Éxito</span>
+				</h1>
+				<p class="section-subtitle" style="max-width: 650px; margin: 1.5rem auto 0;">
+					Un recorrido por los proyectos estratégicos de mayor impacto que hemos liderado en el sector público y privado de Latinoamérica.
+				</p>
+			</div>
+		</div>
+	</section>
 
-        <!-- Project 1 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Programa de Transformación Digital del Sector Justicia</h2>
-            <span class="project-client">Ministerio de Justicia y del Derecho – Colombia</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Arquitecto Empresarial y Líder de Proyectos</p>
-              <p><strong>Periodo:</strong> 2021 – 2025</p>
-            </div>
-            <p class="project-description">Liderazgo de la planificación y ejecución de iniciativas de transformación digital bajo enfoque de Arquitectura Empresarial, alineadas con Gobierno Digital y estrategia sectorial del sistema de justicia colombiano.</p>
-            <h4 class="tech-stack-title">Tecnologías y Marcos</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">TOGAF</span>
-              <span class="skill-tag">COBIT</span>
-              <span class="skill-tag">SCRUM / Agile</span>
-              <span class="skill-tag">Power BI</span>
-            </div>
-            <h4 class="results-title">Resultados Clave</h4>
-            <ul class="results-list">
-              <li>Liderazgo de ejercicios institucionales de Arquitectura Empresarial.</li>
-              <li>Modernización y estandarización de procesos y políticas TI.</li>
-              <li>Fortalecimiento del gobierno tecnológico del ministerio.</li>
-            </ul>
-          </div>
-        </div>
+	<!-- ===== FILTER SECTION ===== -->
+	<section class="filter-section">
+		<div class="container-main">
+			<div class="filter-container reveal">
+				{filterCategories.map(cat => (
+					<button 
+						class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`} 
+						data-filter={cat.id}
+						style={`--hover-color: ${cat.color}`}
+					>
+						{cat.label}
+					</button>
+				))}
+			</div>
+		</div>
+	</section>
 
-        <!-- Project 2 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Hoja de Ruta de Transformación con Arquitectura Empresarial</h2>
-            <span class="project-client">Centro Nacional de Memoria Histórica – Colombia</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Arquitecto Empresarial y Líder de Proyectos</p>
-              <p><strong>Periodo:</strong> 2024 – 2025</p>
-            </div>
-            <p class="project-description">Diseño e implementación del marco de Arquitectura Empresarial para impulsar la transformación digital institucional mediante la optimización de procesos, sistemas y gestión de la información.</p>
-            <h4 class="tech-stack-title">Tecnologías y Marcos</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">MRAE MinTIC</span>
-              <span class="skill-tag">TOGAF</span>
-              <span class="skill-tag">BPM</span>
-              <span class="skill-tag">SCRUM / Agile</span>
-            </div>
-            <h4 class="results-title">Resultados Clave</h4>
-            <ul class="results-list">
-              <li>Roadmap institucional de transformación digital.</li>
-              <li>Portafolio de proyectos priorizados para cierre de brechas.</li>
-            </ul>
-          </div>
-        </div>
+	<!-- ===== PROJECTS GRID ===== -->
+	<section class="section projects-grid-section">
+		<div class="container-main">
+			<div class="project-list-premium">
+				{projects.map((project) => (
+					<ProjectCard {...project} />
+				))}
+			</div>
+		</div>
+	</section>
 
-        <!-- Project 3 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Arquitectura Digital Nacional de Migración</h2>
-            <span class="project-client">Ministerio del Interior – Ecuador (BID / Wegital)</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Arquitecto Empresarial y de Datos</p>
-            </div>
-            <p class="project-description">Definición de arquitectura de solución para modernización de los servicios digitales de la Subsecretaría de Migración del Ecuador.</p>
-            <h4 class="tech-stack-title">Tecnologías y Marcos</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">TOGAF</span>
-               <span class="skill-tag">Arquitectura de Datos</span>
-              <span class="skill-tag">SQL / Python</span>
-            </div>
-            <h4 class="results-title">Resultado Clave</h4>
-            <ul class="results-list">
-              <li>Arquitectura de solución definida para el sector migración.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Transformación Digital de Migración Colombia</h2>
-            <span class="project-client">Migración Colombia – MinRelaciones Exteriores</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Arquitecto de Procesos y de Datos</p>
-            </div>
-            <p class="project-description">Definición de Arquitectura Empresarial para impulsar la transformación digital de los servicios migratorios nacionales.</p>
-            <h4 class="tech-stack-title">Tecnologías y Marcos</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">BPM / Agile</span>
-              <span class="skill-tag">TOGAF</span>
-              <span class="skill-tag">SQL / Python</span>
-            </div>
-            <h4 class="results-title">Resultado Clave</h4>
-            <ul class="results-list">
-              <li>Arquitectura Empresarial definida para habilitar la transformación digital.</li>
-            </ul>
-          </div>
-        </div>
-        
-        <!-- Project 5 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Modernización de Procesos del Sector Público</h2>
-            <span class="project-client">Instituto Nacional de Aprendizaje – Costa Rica</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Arquitecto Empresarial</p>
-            </div>
-            <p class="project-description">Consultoría para la definición de la arquitectura de procesos de una institución nacional de formación y empleo.</p>
-            <h4 class="tech-stack-title">Tecnologías y Marcos</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">BPM</span>
-              <span class="skill-tag">Arquitectura Empresarial</span>
-              <span class="skill-tag">TOGAF / COBIT</span>
-            </div>
-            <h4 class="results-title">Resultado Clave</h4>
-            <ul class="results-list">
-              <li>Arquitectura de procesos institucional definida.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Gobierno de Datos y Plataforma Analítica</h2>
-            <span class="project-client">Ministerio de Justicia y del Derecho</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Arquitecto de Datos y Procesos</p>
-            </div>
-            <p class="project-description">Diseño e implementación de capacidades de gobierno de datos, BI y procesos ETL para soporte a la toma de decisiones.</p>
-            <h4 class="tech-stack-title">Tecnologías</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">ETL</span>
-              <span class="skill-tag">Power BI</span>
-              <span class="skill-tag">Python</span>
-            </div>
-            <h4 class="results-title">Resultados Clave</h4>
-            <ul class="results-list">
-              <li>Procesos ETL implementados.</li>
-              <li>Capacidades analíticas para toma de decisiones.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Project 7 -->
-        <div class="glass-card project-item reveal">
-          <div class="project-header">
-            <h2 class="project-title">Portal Web de Gobierno Inteligente</h2>
-            <span class="project-client">Alcaldía de Montería</span>
-          </div>
-          <div class="project-details">
-            <div class="project-info">
-              <p><strong>Rol:</strong> Líder de Gobierno Digital y Arquitecto de Sistemas</p>
-            </div>
-            <p class="project-description">Liderazgo de la implementación del portal web institucional bajo enfoque de Arquitectura de Solución.</p>
-            <h4 class="tech-stack-title">Tecnologías</h4>
-            <div class="tech-stack">
-              <span class="skill-tag">HTML / CSS / JS</span>
-              <span class="skill-tag">Arquitectura de Solución</span>
-            </div>
-            <h4 class="results-title">Resultado Clave</h4>
-            <ul class="results-list">
-              <li>Portal web institucional implementado.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+	<section class="section cta-final">
+		<div class="container-main">
+			<div class="reveal glass-panel-cta">
+				<div class="cta-content">
+					<h2>¿Listo para iniciar su transformación?</h2>
+					<p>Permítanos ayudarle a diseñar el futuro tecnológico de su organización.</p>
+					<Button href="/#contact" variant="blue" size="full">Agendar Consultoría</Button>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>
 
+<script>
+	// Logic for Filtering
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const projectItems = document.querySelectorAll('.project-card-wrapper');
+
+	filterButtons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			// Update active button
+			filterButtons.forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+
+			const filterValue = btn.getAttribute('data-filter');
+
+			projectItems.forEach(item => {
+				const category = item.getAttribute('data-category');
+				
+				if (filterValue === 'all' || filterValue === category) {
+					item.style.display = 'block';
+					setTimeout(() => {
+						item.style.opacity = '1';
+						item.style.transform = 'scale(1)';
+					}, 10);
+				} else {
+					item.style.opacity = '0';
+					item.style.transform = 'scale(0.95)';
+					setTimeout(() => {
+						item.style.display = 'none';
+					}, 400);
+				}
+			});
+		});
+	});
+</script>
+
 <style>
-  .project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .project-item {
-    padding: 2rem;
-  }
-  .project-header {
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-  }
-  .project-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 0.25rem;
-  }
-  .project-client {
-    font-size: 0.9rem;
-    color: var(--color-accent);
-    font-weight: 500;
-  }
-  .project-details .project-info {
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-  }
-  .project-details .project-info p {
-    margin: 0.25rem 0;
-  }
-  .project-description {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-  .tech-stack-title, .results-title {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-secondary);
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .results-list {
-    list-style-type: none;
-    padding-left: 0;
-    font-size: 0.9rem;
-  }
-  .results-list li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 0.5rem;
-  }
-  .results-list li::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: var(--color-teal);
-  }
+	.portafolio-bg-elements {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+		overflow: hidden;
+	}
+	.blob-1 {
+		position: absolute;
+		top: 10%;
+		right: -10%;
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+		filter: blur(80px);
+		animation: float 20s infinite ease-in-out;
+	}
+	.blob-2 {
+		position: absolute;
+		bottom: 10%;
+		left: -10%;
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+		filter: blur(80px);
+		animation: float 15s infinite ease-in-out reverse;
+	}
+	
+	@keyframes float {
+		0%, 100% { transform: translate(0, 0); }
+		50% { transform: translate(30px, 20px); }
+	}
+
+	.filter-section {
+		padding: 2rem 0;
+		position: sticky;
+		top: var(--nav-height);
+		z-index: 50;
+		background: rgba(var(--color-bg-rgb), 0.8);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.filter-container {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-btn {
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid var(--color-border);
+		padding: 10px 22px;
+		border-radius: 30px;
+		color: var(--color-text-secondary);
+		font-weight: 600;
+		font-size: 0.9rem;
+		cursor: pointer;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		white-space: nowrap;
+	}
+
+	.filter-btn:hover {
+		border-color: var(--hover-color);
+		color: var(--hover-color);
+		background: rgba(255, 255, 255, 0.06);
+		transform: translateY(-2px);
+	}
+
+	.filter-btn.active {
+		background: var(--gradient-accent);
+		color: white;
+		border-color: transparent;
+		box-shadow: 0 10px 20px -5px rgba(var(--color-accent-rgb), 0.3);
+	}
+
+	.project-list-premium {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 4rem;
+		margin-top: 2rem;
+	}
+
+	@media (min-width: 1024px) {
+		.project-list-premium {
+			gap: 5rem;
+		}
+	}
+
+	.cta-final {
+		padding: 8rem 0;
+	}
+
+	.glass-panel-cta {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 32px;
+		padding: 4rem;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cta-content {
+		position: relative;
+		z-index: 1;
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	.cta-content h2 {
+		font-family: var(--font-display);
+		font-size: 2.25rem;
+		font-weight: 900;
+		margin-bottom: 1rem;
+		color: var(--color-text-primary);
+	}
+
+	.cta-content p {
+		font-size: 1.1rem;
+		color: var(--color-text-secondary);
+		margin-bottom: 2.5rem;
+		line-height: 1.6;
+	}
 </style>

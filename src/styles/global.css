@@ -6,7 +6,8 @@
 /* ===== DESIGN SYSTEM TOKENS ===== */
 
 /* ---------------- Dark Theme (Default) ---------------- */
-:root, .dark {
+:root,
+.dark {
     /* Primary Colors */
     --color-bg: #020617;
     --color-bg-secondary: #080e1e;
@@ -49,6 +50,11 @@
     /* Shadows */
     --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
     --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 69, 60, 0.15);
+
+    /* Compatibility Aliases */
+    --color-border: var(--border-subtle);
+    --color-text-primary: var(--color-text);
+    --color-background: var(--color-bg);
 
     color-scheme: dark;
 }
@@ -98,6 +104,11 @@
     --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
     --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(224, 60, 50, 0.2);
 
+    /* Compatibility Aliases */
+    --color-border: var(--border-subtle);
+    --color-text-primary: var(--color-text);
+    --color-background: var(--color-bg);
+
     color-scheme: light;
 }
 
@@ -141,7 +152,15 @@ body {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     min-height: 100vh;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== THEME TRANSITION HELPER ===== */
+.theme-transitioning * {
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* Scrollbar */
@@ -795,7 +814,7 @@ img {
 }
 
 .light .glass-card::before {
-    background: linear-gradient(90deg, transparent 5%, rgba(0,0,0,0.06) 30%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.06) 70%, transparent 95%);
+    background: linear-gradient(90deg, transparent 5%, rgba(0, 0, 0, 0.06) 30%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.06) 70%, transparent 95%);
 }
 
 .glass-card:hover {
@@ -887,7 +906,8 @@ img {
     font-weight: 700;
     margin-bottom: 6px;
     letter-spacing: -0.02em;
-    color: #fff; /* Always white for readability on image */
+    color: #fff;
+    /* Always white for readability on image */
 }
 
 @media (min-width: 768px) {
@@ -899,7 +919,8 @@ img {
 
 .project-card-desc {
     font-size: 0.82rem;
-    color: #cbd5e1; /* Lighter than default secondary for readability on image */
+    color: #cbd5e1;
+    /* Lighter than default secondary for readability on image */
     line-height: 1.6;
 }
 
@@ -977,23 +998,78 @@ img {
     color: var(--color-accent-dark);
 }
 
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+    background: var(--color-surface);
+    border: 1px solid var(--border-subtle);
+    color: var(--color-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    margin-left: 8px;
+}
+
+.theme-toggle:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--border-light);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle svg {
+    position: absolute;
+    transition: all 0.5s var(--ease-spring);
+}
+
+.theme-toggle .sun-icon {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+}
+
+.theme-toggle .moon-icon {
+    transform: translateY(100%) rotate(100deg);
+    opacity: 0;
+}
+
+.dark .theme-toggle .sun-icon {
+    transform: translateY(-100%) rotate(-100deg);
+    opacity: 0;
+}
+
+.dark .theme-toggle .moon-icon {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+}
+
 /* ===== BUTTONS ===== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 24px;
-    font-size: 0.88rem;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 14px;
     font-weight: 600;
-    font-family: var(--font-body);
-    letter-spacing: 0.01em;
-    border-radius: 12px;
-    border: none;
+    font-size: 0.95rem;
+    transition: all 0.3s var(--ease-out-expo), background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
+    border: none;
+    font-family: var(--font-body);
+    text-decoration: none;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s var(--ease-out-expo);
+    letter-spacing: 0.01em;
     text-align: center;
 }
 
@@ -1002,7 +1078,7 @@ img {
         padding: 14px 32px;
         font-size: 0.95rem;
         border-radius: 14px;
-        gap: 10px;
+        gap: 12px;
     }
 }
 
@@ -1024,32 +1100,33 @@ img {
 .btn-primary {
     background: var(--gradient-accent);
     color: white;
-    box-shadow: 0 4px 25px var(--color-accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    box-shadow: 0 6px 20px var(--color-accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 35px var(--color-accent-glow);
-    filter: brightness(1.06);
+    box-shadow: 0 12px 30px var(--color-accent-glow);
+    filter: brightness(1.08);
 }
 
 .btn-secondary {
     background: var(--color-surface);
     color: var(--color-text);
     border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-card);
 }
 
 .btn-secondary:hover {
     background: var(--color-surface-hover);
-    border-color: var(--border-accent);
-    box-shadow: 0 0 25px var(--color-accent-glow);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px var(--color-accent-glow);
     transform: translateY(-3px);
 }
 
 .btn-blue {
     background: var(--gradient-secondary);
     color: white;
-    box-shadow: 0 4px 25px var(--color-secondary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 20px var(--color-secondary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-blue:hover {
@@ -1150,7 +1227,7 @@ img {
 }
 
 .light .news-card:hover {
-   box-shadow: var(--shadow-card-hover);
+    box-shadow: var(--shadow-card-hover);
 }
 
 
@@ -1309,7 +1386,7 @@ img {
 }
 
 .light .decoration-grid {
-     background-image:
+    background-image:
         linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
 }

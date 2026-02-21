@@ -1,0 +1,212 @@
+---
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+import GlassCard from './GlassCard.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	heroImage?: string;
+	url: string;
+	tags?: string[];
+	category?: 'noticia' | 'cientifico' | 'ia-semanal';
+	isMinimal?: boolean;
+}
+
+const { title, description, pubDate, heroImage, url, tags = [], category = 'noticia', isMinimal = false } = Astro.props;
+
+const categoryMap = {
+	'noticia': { label: 'Strategic Insight', color: '#3b82f6' },
+	'cientifico': { label: 'Science & Data', color: '#a855f7' },
+	'ia-semanal': { label: 'AI Vanguard', color: '#fbbf24' }
+};
+
+const currentCategory = categoryMap[category];
+const formattedDate = format(pubDate, "MMM d, yyyy", { locale: es });
+---
+
+<a href={url} class="blog-lux-link reveal">
+	<article class="blog-lux-card">
+		<div class="card-inner">
+			<div class="card-header">
+				<div class="category-pill">
+					<span class="dot" style={`background-color: ${currentCategory.color}`}></span>
+					{currentCategory.label}
+				</div>
+				<time datetime={pubDate.toISOString()}>{formattedDate}</time>
+			</div>
+			
+			<div class="content-body">
+				<h3 class="lux-title">{title}</h3>
+				<p class="lux-desc">{description}</p>
+			</div>
+
+			<div class="card-footer">
+				<div class="footer-meta">
+					<span class="reading-time">
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+						5 min
+					</span>
+				</div>
+				<div class="lux-arrow">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</div>
+			</div>
+		</div>
+		
+		{/* Hover Gradient Border */}
+		<div class="hover-border" style={`background: linear-gradient(90deg, transparent, ${currentCategory.color}, transparent)`}></div>
+	</article>
+</a>
+
+<style>
+	.blog-lux-link {
+		text-decoration: none;
+		display: block;
+		height: 100%;
+	}
+
+	.blog-lux-card {
+		height: 100%;
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 24px;
+		padding: 2.5rem;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.5s var(--ease-out-expo);
+		display: flex;
+		flex-direction: column;
+	}
+
+	:global(.dark) .blog-lux-card {
+		background: rgba(2, 6, 23, 0.7);
+		border-color: rgba(255, 255, 255, 0.03);
+	}
+
+	.blog-lux-card:hover {
+		transform: translateY(-8px);
+		background: rgba(255, 255, 255, 0.04);
+		border-color: rgba(255, 255, 255, 0.1);
+		box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+	}
+
+	.card-inner {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		position: relative;
+		z-index: 2;
+	}
+
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+
+	.category-pill {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 0.7rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+		background: rgba(255, 255, 255, 0.03);
+		padding: 6px 12px;
+		border-radius: 100px;
+		border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		box-shadow: 0 0 10px currentColor;
+	}
+
+	time {
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		opacity: 0.6;
+	}
+
+	.content-body {
+		margin-bottom: 3rem;
+	}
+
+	.lux-title {
+		font-family: var(--font-display);
+		font-size: 1.4rem;
+		font-weight: 800;
+		line-height: 1.3;
+		color: var(--color-text-primary);
+		margin-bottom: 1rem;
+		letter-spacing: -0.01em;
+	}
+
+	.lux-desc {
+		font-size: 0.9rem;
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+		opacity: 0.7;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.footer-meta {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.reading-time {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: var(--color-text-muted);
+	}
+
+	.lux-arrow {
+		color: var(--color-text-muted);
+		transition: all 0.4s ease;
+	}
+
+	.blog-lux-card:hover .lux-arrow {
+		transform: translateX(5px);
+		color: var(--color-text-primary);
+	}
+
+	.hover-border {
+		position: absolute;
+		bottom: 0;
+		left: -100%;
+		width: 100%;
+		height: 2px;
+		transition: left 0.6s var(--ease-out-expo);
+		z-index: 1;
+	}
+
+	.blog-lux-card:hover .hover-border {
+		left: 0;
+	}
+</style>
