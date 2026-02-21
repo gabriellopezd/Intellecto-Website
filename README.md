@@ -5,24 +5,24 @@
 
 La versión actual representa un rediseño completo enfocado en una estética cinematográfica, micro-interacciones fluidas y una jerarquía visual sofisticada.
 
-## ✨ Mejoras UI/UX Recientes (Febrero 2026)
+## ✨ Mejoras UI/UX Recientes
 Se ha implementado una evolución visual profunda:
+*   **Nueva Paleta de Colores:** Se reemplazó la paleta de colores "Cyber-Neon" por un esquema más corporativo y vibrante, con el rojo/naranja de la marca y un azul cielo como acento secundario.
 *   **Profundidad Visual:** Glassmorphism avanzado con capas de desenfoque, bordes luminosos y sombras multinivel.
-*   **Micro-interacciones:** Efectos de spotlight dinámico que siguen el cursor, efectos 3D tilt en tarjetas y transiciones fluidas.
-*   **Animaciones Cinematográficas:** Fondo de aurora boreal animado, orbs de luz flotantes y entradas coordinadas (stagger animations).
-*   **Jerarquía de Contenido:** Secciones claramente divididas con gradientes lineales y separadores decorativos.
+*   **Micro-interacciones:** Efectos de spotlight dinámico, efectos 3D tilt en tarjetas y transiciones fluidas.
+*   **Animaciones Cinematográficas:** Orbs de luz flotantes y entradas coordinadas (stagger animations).
 
 ## 🎨 Sistema de Diseño
 *   **Tipografía:** 
     *   **Outfit:** Fuente display para títulos, aportando modernidad y carácter.
     *   **Inter:** Fuente para cuerpo de texto, garantizando máxima legibilidad.
-*   **Paleta de Colores:** "Ultra Premium Dark Palette" con acentos vibrantes en Cyan, Teal, Púrpura y Rosa, sobre fondos de azul profundo.
+*   **Paleta de Colores:** Esquema dual con un tema oscuro por defecto y un tema claro opcional. Los colores primarios son un rojo-naranja vibrante y un azul cielo, aplicados sobre fondos neutros y profundos (oscuro) o claros y limpios (claro).
 
 ## 🛠️ Tech Stack
-*   **Framework:** [Astro](https://astro.build/) (v5.17.1)
-*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (v4.0)
+*   **Framework:** [Astro](https://astro.build/) (v4.x)
+*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
 *   **Hosting:** [Firebase Hosting](https://firebase.google.com/)
-*   **Animaciones:** CSS nativo y Framer Motion (para componentes interactivos).
+*   **Control de Versiones:** [Git & GitHub](https://github.com/)
 
 ## 💻 Despliegue Local
 Para ejecutar el proyecto en tu entorno local:
@@ -41,23 +41,25 @@ Para ejecutar el proyecto en tu entorno local:
     ```
 
 ## 🌐 Despliegue en Producción
-El despliegue se realiza a través de Firebase Hosting en el proyecto `intellecto-15322884-10710`.
+El despliegue se realiza a través de Firebase Hosting en el proyecto `intellecto-website`.
 ```bash
 firebase deploy --only hosting
 ```
 
 ## 📂 Estructura del Proyecto
-*   `/src/pages`: Páginas principales (`index.astro`, `sobre-mi.astro`).
-*   `/src/layouts`: Estructura base del sitio con Navbar y Footer premium.
-*   `/src/styles`: Estilos globales y tokens del sistema de diseño.
-*   `/public`: Recursos estáticos (PDFs, imágenes, favicon).
+*   `/src/pages`: Páginas y rutas principales del sitio.
+*   `/src/layouts`: Plantilla base del sitio (`Layout.astro`).
+*   `/src/components`: Componentes reutilizables de Astro/UI.
+*   `/src/styles`: Hoja de estilos global (`global.css`) con variables y estilos base.
+*   `/public`: Recursos estáticos (imágenes, favicons, etc.).
 
 ## 📝 Historial de Cambios Destacados
-*   **2026-02-15:** `feat: Rediseño completo UI/UX Ultra Premium y configuración de Firebase.`
-*   **2026-02-14:** `feat: Integración de fuentes Google Fonts y sistema de cuadrícula responsivo.`
+*   **2024-07-27:** `feat: Implement new red-orange and sky-blue color palette.`
+*   **2024-02-15:** `feat: Initial setup with Astro, Tailwind, and Firebase.`
+*   **2024-02-14:** `docs: Create initial project structure and README.`
 
 ## 👤 Autor
 **Gabriel López** - Arquitecto Empresarial y Estratega de TI.
 
 ---
-*Última actualización: Febrero 2025*
+*Última actualización: 27 de Julio de 2024*
