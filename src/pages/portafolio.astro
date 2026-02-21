@@ -1,85 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/ui/Button.astro';
 import ProjectCard from '../components/ui/ProjectCard.astro';
 
-const projects = [
-	{
-		title: "Programa de Transformación Digital del Sector Justicia",
-		client: "Ministerio de Justicia y del Derecho – Colombia",
-		role: "Arquitecto Empresarial y Líder de Proyectos",
-		period: "2021 – 2025",
-		category: "transformacion",
-		description: "Liderazgo de la planificación y ejecución de iniciativas de transformación digital bajo enfoque de Arquitectura Empresarial, alineadas con Gobierno Digital y estrategia sectorial del sistema de justicia colombiano.",
-		tech: ["TOGAF", "COBIT", "SCRUM / Agile", "Power BI"],
-		results: [
-			"Liderazgo de ejercicios institucionales de Arquitectura Empresarial.",
-			"Modernización y estandarización de procesos y políticas TI.",
-			"Fortalecimiento del gobierno tecnológico del ministerio."
-		]
-	},
-	{
-		title: "Hoja de Ruta de Transformación con Arquitectura Empresarial",
-		client: "Centro Nacional de Memoria Histórica – Colombia",
-		role: "Arquitecto Empresarial y Líder de Proyectos",
-		period: "2024 – 2025",
-		category: "ea",
-		description: "Diseño e implementación del marco de Arquitectura Empresarial para impulsar la transformación digital institucional mediante la optimización de procesos, sistemas y gestión de la información.",
-		tech: ["MRAE MinTIC", "TOGAF", "BPM", "SCRUM / Agile"],
-		results: [
-			"Roadmap institucional de transformación digital.",
-			"Portafolio de proyectos priorizados para cierre de brechas."
-		]
-	},
-	{
-		title: "Arquitectura Digital Nacional de Migración",
-		client: "Ministerio del Interior – Ecuador (BID / Wegital)",
-		role: "Arquitecto Empresarial y de Datos",
-		category: "ea",
-		description: "Definición de arquitectura de solución para modernización de los servicios digitales de la Subsecretaría de Migración del Ecuador.",
-		tech: ["TOGAF", "Arquitectura de Datos", "SQL / Python"],
-		results: ["Arquitectura de solución definida para el sector migración."]
-	},
-	{
-		title: "Transformación Digital de Migración Colombia",
-		client: "Migración Colombia – MinRelaciones Exteriores",
-		role: "Arquitecto de Procesos y de Datos",
-		category: "transformacion",
-		description: "Definición de Arquitectura Empresarial para impulsar la transformación digital de los servicios migratorios nacionales.",
-		tech: ["BPM / Agile", "TOGAF", "SQL / Python"],
-		results: ["Arquitectura Empresarial definida para habilitar la transformación digital."]
-	},
-	{
-		title: "Modernización de Procesos del Sector Público",
-		client: "Instituto Nacional de Aprendizaje – Costa Rica",
-		role: "Arquitecto Empresarial",
-		category: "ea",
-		description: "Consultoría para la definición de la arquitectura de procesos de una institución nacional de formación y empleo.",
-		tech: ["BPM", "Arquitectura Empresarial", "TOGAF / COBIT"],
-		results: ["Arquitectura de procesos institucional definida."]
-	},
-	{
-		title: "Gobierno de Datos y Plataforma Analítica",
-		client: "Ministerio de Justicia y del Derecho",
-		role: "Arquitecto de Datos y Procesos",
-		category: "datos",
-		description: "Diseño e implementación de capacidades de gobierno de datos, BI y procesos ETL para soporte a la toma de decisiones.",
-		tech: ["SQL", "ETL", "Power BI", "Python"],
-		results: [
-			"Procesos ETL implementados.",
-			"Capacidades analíticas para toma de decisiones."
-		]
-	},
-	{
-		title: "Portal Web de Gobierno Inteligente",
-		client: "Alcaldía de Montería",
-		role: "Líder de Gobierno Digital y Arquitecto de Sistemas",
-		category: "transformacion",
-		description: "Liderazgo de la implementación del portal web institucional bajo enfoque de Arquitectura de Solución.",
-		tech: ["HTML / CSS / JS", "Arquitectura de Solución"],
-		results: ["Portal web institucional implementado."]
-	}
-];
+// Obtenemos todos los proyectos desde la colección de contenido de Astro
+const projects = await getCollection('portfolio');
 
 const filterCategories = [
 	{ id: 'all', label: 'Todos', color: 'var(--color-text-primary)' },
@@ -135,7 +61,7 @@ const filterCategories = [
 		<div class="container-main">
 			<div class="project-list-premium">
 				{projects.map((project) => (
-					<ProjectCard {...project} />
+					<ProjectCard {...project.data} />
 				))}
 			</div>
 		</div>

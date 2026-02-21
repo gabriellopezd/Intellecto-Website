@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: gabriellopezd/Intellecto-Website
+  client_id: Ov23liHkWTeQT5Y6Dp2o
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "string" }
+      - { label: "Fecha de Publicación", name: "pubDate", widget: "datetime" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+      - { label: "Imagen", name: "image", widget: "image", optional: true }
+
+  - name: "portfolio"
+    label: "Portafolio"
+    folder: "src/content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Cliente", name: "client", widget: "string" }
+      - { label: "Rol", name: "role", widget: "string" }
+      - { label: "Periodo", name: "period", widget: "string", optional: true }
+      - { label: "Categoría", name: "category", widget: "select", options: ["ea", "transformacion", "datos"] }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Tecnologías", name: "tech", widget: "list", field: { label: "Tecnología", name: "name", widget: "string" } }
+      - { label: "Resultados Clave", name: "results", widget: "list", field: { label: "Resultado", name: "item", widget: "string" } }
