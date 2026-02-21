@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import GlassCard from '../components/ui/GlassCard.astro';
+---
+
+<Layout title="Intellecto App - La Ingeniería detrás del Conocimiento">
+  <main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="section app-hero">
+      <div class="container-main">
+        <div class="reveal" style="text-align: center; max-width: 900px; margin: 0 auto;">
+          <div class="section-tag">Engineering Showcase</div>
+          <h1 class="section-title">
+            Donde la Arquitectura se vuelve <br/>
+            <span class="gradient-text-lux">Software Real</span>
+          </h1>
+          <p class="section-subtitle">
+            Intellecto App no es solo una herramienta; es la materialización de nuestra filosofía técnica. Un entorno donde probamos patrones, escalamos ideas y demostramos que sabemos construir lo que predicamos.
+          </p>
+          <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 1.5rem;">
+             <Button href="https://app.intellecto.com.co" target="_blank">
+               Ver Demo en Vivo
+             </Button>
+             <Button href="#stack" variant="secondary">
+               Explorar el Stack
+             </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ARCHITECTURE SECTION ===== -->
+    <section id="stack" class="section" style="background: rgba(var(--color-bg-tertiary-rgb), 0.3);">
+      <div class="container-main">
+        <div class="grid-architecture">
+          <div class="reveal">
+            <h2 class="section-title" style="text-align: left;">El ADN de nuestra <br/><span class="gradient-text-lux">Ingeniería</span></h2>
+            <p style="color: var(--color-text-secondary); font-size: 1.1rem; line-height: 1.8; margin: 2rem 0;">
+              Construir <strong>Intellecto App</strong> nos permitió implementar un stack tecnológico de vanguardia, optimizado para el rendimiento, la seguridad y la experiencia de usuario de élite.
+            </p>
+            
+            <div class="stack-list">
+              <div class="stack-item">
+                <div class="stack-icon">⚛️</div>
+                <div>
+                  <strong>Frontend de Alto Rendimiento</strong>
+                  <p>Basado en arquitecturas modernas para una carga instantánea.</p>
+                </div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-icon">⚡</div>
+                <div>
+                  <strong>IA & Automatización</strong>
+                  <p>Integración nativa de modelos avanzados para casos reales.</p>
+                </div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-icon">🛡️</div>
+                <div>
+                  <strong>Infraestructura Inmutable</strong>
+                  <p>Despliegue y seguridad automatizada de grado empresarial.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal delay-200">
+            <GlassCard class="tech-diagram">
+              <div class="diagram-layer">
+                <span>UI / UX Layer</span>
+                <div class="layer-bar"></div>
+              </div>
+              <div class="diagram-layer">
+                <span>Logic & GenAI</span>
+                <div class="layer-bar accent"></div>
+              </div>
+              <div class="diagram-layer">
+                <span>Data Sovereignty</span>
+                <div class="layer-bar"></div>
+              </div>
+              <div class="diagram-layer">
+                <span>Core Engine</span>
+                <div class="layer-bar secondary"></div>
+              </div>
+              <div class="diagram-label">Architecture Blueprint v3.0</div>
+            </GlassCard>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PHILOSOPHY SECTION ===== -->
+    <section class="section">
+      <div class="container-main">
+         <div class="reveal" style="text-align: center; background: linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.1), transparent); padding: 5rem 2rem; border-radius: 40px; border: 1px solid rgba(var(--color-accent-rgb), 0.1);">
+            <h2 class="section-title">Por qué <span class="gradient-text-lux">Construimos</span></h2>
+            <p style="max-width: 700px; margin: 2rem auto; font-size: 1.25rem; color: var(--color-text-primary); font-weight: 300;">
+              "En Intellecto, creemos que la mejor consultoría nace de la práctica. No solo diseñamos roadmaps; operamos el software que define esos estándares."
+            </p>
+            <div style="font-weight: 700; color: var(--color-accent); letter-spacing: 0.1em; text-transform: uppercase;">Misión Técnica</div>
+         </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .app-hero {
+    padding-top: calc(var(--nav-height) + 6rem);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 50% 100%, rgba(var(--color-accent-rgb), 0.1), transparent 70%);
+  }
+
+  .grid-architecture {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .grid-architecture {
+      grid-template-columns: 1fr 1.1fr;
+    }
+  }
+
+  .stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stack-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .stack-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--color-surface-rgb), 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .stack-item strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .stack-item p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .tech-diagram {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .diagram-layer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .diagram-layer span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    font-weight: 700;
+  }
+
+  .layer-bar {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .layer-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--percent, 70%);
+    background: var(--color-accent);
+    box-shadow: 0 0 20px rgba(var(--color-accent-rgb), 0.5);
+  }
+
+  .layer-bar.accent::after { width: 90%; background: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+  .layer-bar.secondary::after { width: 40%; background: var(--color-secondary); }
+
+  .diagram-label {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    text-align: right;
+    color: var(--color-accent);
+    font-family: monospace;
+    opacity: 0.6;
+  }
+</style>

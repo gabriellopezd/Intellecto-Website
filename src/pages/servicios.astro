@@ -58,18 +58,18 @@ const services = [
 
 <Layout title="Servicios - Intellecto">
   <!-- ===== SERVICES HERO SECTION ===== -->
-  <section class="section" style="padding-top: calc(var(--nav-height) + 3rem); text-align: center;">
+  <section class="section" style="padding-top: calc(var(--nav-height) + 5rem); text-align: center;">
     <div class="container-main">
       <div class="reveal">
         <div class="section-tag">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.063 2.365 12.48a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.581-6.135a.5.5 0 0 1 .964 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8.5 14.063 2.365 12.48a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.581-6.135a.5.5 0 0 1 .964 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
           Nuestras Capacidades
         </div>
         <h1 class="section-title">
-          Servicios de <span class="gradient-text">Transformación</span>
+          Servicios de <span class="gradient-text-lux">Transformación Digital</span>
         </h1>
-        <p class="section-subtitle" style="max-width: 700px; margin: 1rem auto 0;">
-          Ayudamos a organizaciones públicas y privadas a modernizar sus capacidades digitales mediante arquitectura empresarial, datos, nube y transformación organizacional. Nuestro enfoque combina estrategia, tecnología y ejecución para convertir la visión digital en resultados medibles.
+        <p class="section-subtitle" style="max-width: 800px; margin: 2rem auto 0; font-size: 1.25rem;">
+          Lideramos la evolución de organizaciones mediante arquitectura de alto nivel, datos soberanos y estrategias de IA que definen el mercado.
         </p>
       </div>
     </div>
@@ -78,24 +78,49 @@ const services = [
   <!-- ===== SERVICES LIST ===== -->
   <section class="section">
     <div class="container-main">
-      <div class="services-grid">
+      <div class="services-lux-grid">
         {services.map((service) => (
-          <div id={service.id} class="glass-card service-item reveal">
-            <div class="service-header">
-              <h3 class="service-title">{service.title}</h3>
-              <p class="service-short-desc">{service.shortDesc}</p>
-            </div>
-            <div class="service-details">
-              <p>{service.description}</p>
-              <h4 class="includes-title">Qué incluye</h4>
-              <ul class="includes-list">
-                {service.includes.map(item => <li>{item}</li>)}
-              </ul>
-              <h4 class="tech-stack-title">Marcos y herramientas</h4>
-              <div class="tech-stack">
-                {service.techStack.map(tech => <span class="skill-tag">{tech}</span>)}
+          <div id={service.id} class="service-lux-item reveal">
+            <div class="service-lux-inner">
+              <div class="service-top-meta">
+                <span class="service-number">0{services.indexOf(service) + 1}</span>
+                <div class="service-icon-box">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m5 9 7-7 7 7"/><path d="m19 15-7 7-7-7"/></svg>
+                </div>
+              </div>
+              
+              <div class="service-lux-header">
+                <h3 class="service-lux-title">{service.title}</h3>
+                <p class="service-lux-short-desc">{service.shortDesc}</p>
+              </div>
+
+              <div class="service-lux-content">
+                <p class="main-description">{service.description}</p>
+                
+                <div class="info-blocks">
+                  <div class="includes-block">
+                    <h4 class="lux-label">Qué incluye</h4>
+                    <ul class="lux-list">
+                      {service.includes.map(item => (
+                        <li>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div class="tech-block">
+                    <h4 class="lux-label">Frameworks</h4>
+                    <div class="lux-tags">
+                      {service.techStack.map(tech => <span class="lux-tag">{tech}</span>)}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            
+            <div class="lux-hover-glow"></div>
           </div>
         ))}
       </div>
@@ -103,14 +128,17 @@ const services = [
   </section>
 
   <!-- ===== CTA SECTION ===== -->
-  <section class="section">
+  <section class="section" style="margin-bottom: 5rem;">
     <div class="container-main">
-      <div class="cta-banner reveal">
-        <div class="cta-content">
-          <h2 class="cta-title">¿Listo para impulsar la transformación digital de tu organización?</h2>
-          <p class="cta-subtitle">Conversemos sobre tu proyecto.</p>
+      <div class="cta-lux-banner reveal">
+        <div class="cta-lux-content">
+          <h2 class="cta-lux-title">¿Listo para definir el futuro?</h2>
+          <p class="cta-lux-subtitle">Agendemos una sesión estratégica con nuestros arquitectos expertos.</p>
         </div>
-        <Button href="#contact" class="cta-btn">Enviar Mensaje</Button>
+        <a href="#contact" class="btn-lux">
+          <span>Iniciar Consulta</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -118,66 +146,228 @@ const services = [
 </Layout>
 
 <style>
-  .services-grid {
+  .services-lux-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  .service-item {
-    padding: 2rem;
+
+  @media (min-width: 1024px) {
+    .services-lux-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .service-lux-item {
+    position: relative;
+    border-radius: 40px;
+    background: rgba(var(--color-bg-rgb), 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: all 0.6s var(--ease-out-expo);
+  }
+
+  .light .service-lux-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .service-lux-item:hover {
+    transform: translateY(-10px);
+    border-color: rgba(var(--color-accent-rgb), 0.3);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+  }
+
+  .service-lux-inner {
+    padding: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .service-top-meta {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
   }
-  .service-header {
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-  }
-  .service-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 0.5rem;
-  }
-  .service-short-desc {
-    font-size: 0.95rem;
+
+  .service-number {
+    font-size: 0.9rem;
+    font-weight: 800;
     color: var(--color-accent);
-    min-height: 40px;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
   }
-  .service-details p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
+
+  .service-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(var(--color-accent-rgb), 0.1);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .includes-title, .tech-stack-title {
+
+  .service-lux-title {
     font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .service-lux-item:hover .service-lux-title {
+    font-weight: 800;
+  }
+
+  .service-lux-short-desc {
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-secondary);
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
   }
-  .includes-list {
-    list-style-type: none;
-    padding-left: 0;
-    font-size: 0.9rem;
+
+  .main-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 3rem;
   }
-  .includes-list li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 0.5rem;
+
+  .info-blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
-  .includes-list li::before {
-    content: '›';
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    color: var(--color-teal);
+
+  @media (min-width: 640px) {
+    .info-blocks {
+      grid-template-columns: 1fr 1fr;
+    }
   }
-  .tech-stack {
+
+  .lux-label {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .lux-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .lux-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .lux-list li svg {
+    margin-top: 4px;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .lux-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+  }
+
+  .lux-tag {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .light .lux-tag {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .lux-hover-glow {
+    position: absolute;
+    bottom: -20%;
+    right: -20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.15) 0%, transparent 70%);
+    filter: blur(60px);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+  }
+
+  .service-lux-item:hover .lux-hover-glow {
+    opacity: 1;
+  }
+
+  .cta-lux-banner {
+    background: linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.1), rgba(var(--color-secondary-rgb), 0.05));
+    border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+    border-radius: 40px;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .cta-lux-banner {
+      flex-direction: row;
+      text-align: left;
+      justify-content: space-between;
+    }
+  }
+
+  .cta-lux-title {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .cta-lux-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .btn-lux {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.25rem 2.5rem;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 100px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.4s var(--ease-out-expo);
+    white-space: nowrap;
+  }
+
+  .btn-lux:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px -10px rgba(var(--color-accent-rgb), 0.5);
   }
 </style>

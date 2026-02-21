@@ -23,44 +23,49 @@ const sections = [
 ---
 
 <Layout title="Blog y Conocimiento - Intellecto">
-	<section class="section" style="padding-top: calc(var(--nav-height) + 4rem);">
+	<section class="section" style="padding-top: calc(var(--nav-height) + 6rem);">
 		<div class="container-main">
-			<div class="reveal" style="text-align: center; margin-bottom: 5rem;">
-				<div class="section-tag section-tag-purple">
-					<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+			<div class="reveal" style="text-align: center; margin-bottom: 6rem;">
+				<div class="section-tag">
+					<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
 					Hub de Conocimiento
 				</div>
 				<h1 class="section-title">
-					Explora nuestro <span class="gradient-text-purple">Conocimiento</span>
+					Explora nuestro <span class="gradient-text-lux">Conocimiento</span>
 				</h1>
-				<p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
-					Información estratégica dividida en tres ejes fundamentales para la toma de decisiones tecnológicas.
+				<p class="section-subtitle" style="max-width: 750px; margin: 2rem auto 0; font-size: 1.25rem;">
+					Información estratégica, análisis técnico y tendencias de IA diseñadas para líderes que definen el mañana.
 				</p>
 			</div>
 
 			<!-- Navigation Anchors -->
-			<div class="blog-nav reveal">
+			<div class="blog-lux-nav reveal">
 				{sections.map(section => (
-					<a href={`#${section.id}`} class="blog-nav-item">
-						<span class="nav-icon">{section.icon}</span>
-						<span class="nav-text">{section.title}</span>
+					<a href={`#${section.id}`} class="blog-lux-nav-item">
+						<span class="nav-lux-icon" style={`background: rgba(var(--color-accent-rgb), 0.1); color: var(--color-accent);`}>{section.icon}</span>
+						<div class="nav-lux-text">
+							<span class="label">Explorar</span>
+							<span class="title">{section.title}</span>
+						</div>
 					</a>
 				))}
 			</div>
 
 			<!-- Blog Sections -->
 			{sections.map((section) => (
-				<div id={section.id} class="blog-section-block">
-					<div class="section-header-mini reveal">
-						<h2 class="mini-title">
-							<span style={`color: ${section.color}; margin-right: 10px;`}>{section.icon}</span>
-							{section.title}
-						</h2>
-						<div class="title-line" style={`background: ${section.color};`}></div>
+				<div id={section.id} class="blog-lux-section-block">
+					<div class="section-lux-header-mini reveal">
+						<div class="header-inner">
+						  <h2 class="mini-lux-title">
+						    <span class="icon">{section.icon}</span>
+						    {section.title}
+						  </h2>
+						  <div class="lux-title-line"></div>
+						</div>
 					</div>
 
 					{section.data.length > 0 ? (
-						<div class="blog-grid">
+						<div class="blog-lux-grid">
 							{section.data.map((post) => (
 								<BlogCard 
 									title={post.data.title}
@@ -74,8 +79,9 @@ const sections = [
 							))}
 						</div>
 					) : (
-						<div class="empty-state reveal">
-							<p>Próximamente más contenido en esta sección.</p>
+						<div class="empty-lux-state reveal">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3; margin-bottom: 1.5rem;"><path d="m14 2 6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h6"/></svg>
+							<p>Contenido premium en fase de redacción. Vuelva pronto.</p>
 						</div>
 					)}
 				</div>
@@ -85,73 +91,122 @@ const sections = [
 </Layout>
 
 <style>
-	.blog-nav {
-		display: flex;
-		justify-content: center;
+	.blog-lux-nav {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 1.5rem;
-		margin-bottom: 6rem;
-		flex-wrap: wrap;
+		margin-bottom: 8rem;
 	}
-	.blog-nav-item {
+
+	.blog-lux-nav-item {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-		padding: 12px 24px;
-		background: var(--color-bg-secondary);
-		border: 1px solid var(--color-border);
-		border-radius: 16px;
+		gap: 1.25rem;
+		padding: 1.5rem;
+		background: rgba(var(--color-bg-secondary-rgb), 0.5);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 24px;
 		text-decoration: none;
-		color: var(--color-text-primary);
-		font-weight: 600;
-		font-size: 0.95rem;
-		transition: all 0.3s ease;
-		box-shadow: var(--shadow-sm);
+		transition: all 0.4s var(--ease-out-expo);
+		backdrop-filter: blur(10px);
 	}
-	.blog-nav-item:hover {
-		transform: translateY(-5px);
+
+	.light .blog-lux-nav-item {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: rgba(0, 0, 0, 0.05);
+	}
+
+	.blog-lux-nav-item:hover {
+		transform: translateY(-8px);
+		background: rgba(var(--color-accent-rgb), 0.05);
 		border-color: var(--color-accent);
-		background: var(--color-surface-hover);
-		box-shadow: var(--shadow-md);
+		box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
 	}
-	.nav-icon {
-		font-size: 1.25rem;
+
+	.nav-lux-icon {
+		width: 52px;
+		height: 52px;
+		border-radius: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
 	}
 	
-	.blog-section-block {
-		margin-bottom: 8rem;
-		scroll-margin-top: calc(var(--nav-height) + 2rem);
+	.nav-lux-text {
+		display: flex;
+		flex-direction: column;
 	}
-	.section-header-mini {
+
+	.nav-lux-text .label {
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--color-accent);
+		font-weight: 800;
+		margin-bottom: 2px;
+	}
+
+	.nav-lux-text .title {
+		font-family: var(--font-display);
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+	
+	.blog-lux-section-block {
+		margin-bottom: 10rem;
+		scroll-margin-top: calc(var(--nav-height) + 4rem);
+	}
+
+	.section-lux-header-mini .header-inner {
 		display: flex;
 		align-items: center;
-		gap: 2rem;
-		margin-bottom: 3rem;
+		gap: 2.5rem;
+		margin-bottom: 4rem;
 	}
-	.mini-title {
+
+	.mini-lux-title {
 		font-family: var(--font-display);
-		font-size: 1.75rem;
-		font-weight: 800;
+		font-size: 2.25rem;
+		font-weight: 300;
 		color: var(--color-text-primary);
 		white-space: nowrap;
+		letter-spacing: -0.02em;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 	}
-	.title-line {
+
+	.mini-lux-title .icon {
+		font-size: 1.75rem;
+		filter: drop-shadow(0 0 10px rgba(var(--color-accent-rgb), 0.3));
+	}
+
+	.lux-title-line {
 		height: 1px;
 		flex: 1;
-		opacity: 0.2;
+		background: linear-gradient(90deg, rgba(var(--color-accent-rgb), 0.2), transparent);
 	}
 	
-	.blog-grid {
+	.blog-lux-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-		gap: 2.5rem;
+		grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+		gap: 3rem;
 	}
 	
-	.empty-state {
+	.empty-lux-state {
 		text-align: center;
-		padding: 4rem;
-		background: var(--color-bg-secondary);
-		border-radius: 20px;
-		border: 1px dashed var(--color-border);
+		padding: 6rem 2rem;
+		background: rgba(var(--color-bg-secondary-rgb), 0.3);
+		border-radius: 32px;
+		border: 1px dashed rgba(255, 255, 255, 0.1);
 		color: var(--color-text-muted);
+		font-size: 1.1rem;
+	}
+
+	.light .empty-lux-state {
+		background: rgba(0, 0, 0, 0.02);
+		border-color: rgba(0, 0, 0, 0.1);
 	}
 </style>

@@ -16,45 +16,47 @@
     --color-surface-hover: #162033;
     --color-surface-elevated: #1a2742;
 
-    /* Accent - Red-Orange (from Logo) */
-    --color-accent: #ff453c;
-    --color-accent-light: #ff7066;
-    --color-accent-dark: #e03c32;
-    --color-accent-glow: rgba(255, 69, 60, 0.4);
+    /* Accent - Royal Indigo (Ultra-Lux) */
+    --color-accent: #6366f1;
+    --color-accent-light: #818cf8;
+    --color-accent-dark: #4f46e5;
+    --color-accent-glow: rgba(99, 102, 241, 0.4);
 
-    /* Secondary - Sky Blue */
-    --color-secondary: #38bdf8;
-    --color-secondary-light: #7dd3fc;
-    --color-secondary-glow: rgba(56, 189, 248, 0.4);
+    /* Secondary - Electric Blue */
+    --color-secondary: #3b82f6;
+    --color-secondary-light: #60a5fa;
+    --color-secondary-glow: rgba(59, 130, 246, 0.4);
 
     /* Text */
-    --color-text: #f0f4f8;
-    --color-text-secondary: #8b9cb7;
-    --color-text-muted: #5a6b85;
+    --color-text: #f8fafc;
+    --color-text-secondary: #94a3b8;
+    --color-text-muted: #64748b;
 
     /* Borders */
     --border-subtle: rgba(255, 255, 255, 0.05);
     --border-light: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(255, 69, 60, 0.2);
+    --border-accent: rgba(99, 102, 241, 0.2);
 
     /* Gradients */
-    --gradient-accent: linear-gradient(135deg, #ff453c 0%, #e03c32 100%);
-    --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+    --gradient-accent: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     --gradient-hero:
-        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 69, 60, 0.08) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
     --gradient-mesh:
-        radial-gradient(at 20% 10%, rgba(255, 69, 60, 0.06) 0px, transparent 50%),
-        radial-gradient(at 80% 20%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
+        radial-gradient(at 20% 10%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 80% 20%, rgba(59, 130, 246, 0.07) 0px, transparent 50%);
 
-    /* Shadows */
-    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 69, 60, 0.15);
+    /* Shadows Lux */
+    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    --shadow-card-hover: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.2);
 
     /* Compatibility Aliases */
     --color-border: var(--border-subtle);
     --color-text-primary: var(--color-text);
     --color-background: var(--color-bg);
+    --color-accent-rgb: 99, 102, 241;
+    --color-bg-rgb: 2, 6, 23;
 
     color-scheme: dark;
 }
@@ -62,23 +64,23 @@
 /* ---------------- Light Theme ---------------- */
 .light {
     /* Primary Colors */
-    --color-bg: #f8fafc;
-    --color-bg-secondary: #f1f5f9;
-    --color-bg-tertiary: #e2e8f0;
+    --color-bg: #fdfdfd;
+    --color-bg-secondary: #f8fafc;
+    --color-bg-tertiary: #f1f5f9;
     --color-surface: #ffffff;
-    --color-surface-hover: #fcfdff;
+    --color-surface-hover: #f8fafc;
     --color-surface-elevated: #ffffff;
 
-    /* Accent - Red-Orange (from Logo) */
-    --color-accent: #e03c32;
-    --color-accent-light: #ff453c;
-    --color-accent-dark: #c43228;
-    --color-accent-glow: rgba(224, 60, 50, 0.3);
+    /* Accent - Royal Indigo */
+    --color-accent: #4f46e5;
+    --color-accent-light: #6366f1;
+    --color-accent-dark: #3730a3;
+    --color-accent-glow: rgba(79, 70, 229, 0.2);
 
-    /* Secondary - Sky Blue */
-    --color-secondary: #0ea5e9;
-    --color-secondary-light: #38bdf8;
-    --color-secondary-glow: rgba(14, 165, 233, 0.3);
+    /* Secondary - Electric Blue */
+    --color-secondary: #2563eb;
+    --color-secondary-light: #3b82f6;
+    --color-secondary-glow: rgba(37, 99, 235, 0.2);
 
     /* Text */
     --color-text: #0f172a;
@@ -86,28 +88,27 @@
     --color-text-muted: #64748b;
 
     /* Borders */
-    --border-subtle: rgba(0, 0, 0, 0.07);
-    --border-light: rgba(0, 0, 0, 0.1);
-    --border-accent: rgba(224, 60, 50, 0.4);
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --border-light: rgba(0, 0, 0, 0.08);
+    --border-accent: rgba(79, 70, 229, 0.15);
 
-    /* Gradients */
-    --gradient-accent: linear-gradient(135deg, #ff453c 0%, #e03c32 100%);
-    --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+    /* Gradients Lux */
+    --gradient-accent: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     --gradient-hero:
-        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(224, 60, 50, 0.08) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(14, 165, 233, 0.06) 0%, transparent 50%);
-    --gradient-mesh:
-        radial-gradient(at 20% 10%, rgba(224, 60, 50, 0.07) 0px, transparent 50%),
-        radial-gradient(at 80% 20%, rgba(14, 165, 233, 0.06) 0px, transparent 50%);
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(99, 102, 241, 0.05) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 85% 60%, rgba(59, 130, 246, 0.04) 0%, transparent 50%);
 
-    /* Shadows */
-    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
-    --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(224, 60, 50, 0.2);
+    /* Shadows Lux */
+    --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.01);
+    --shadow-card-hover: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.08);
 
     /* Compatibility Aliases */
     --color-border: var(--border-subtle);
     --color-text-primary: var(--color-text);
     --color-background: var(--color-bg);
+    --color-accent-rgb: 79, 70, 229;
+    --color-bg-rgb: 253, 253, 253;
 
     color-scheme: light;
 }

@@ -7,6 +7,7 @@ import BlogCard from '../components/ui/BlogCard.astro';
 import ProjectCard from '../components/ui/ProjectCard.astro';
 import Button from '../components/ui/Button.astro';
 import GlassCard from '../components/ui/GlassCard.astro';
+import AppShowcase from '../components/sections/AppShowcase.astro';
 const recentPosts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
@@ -124,6 +125,9 @@ const services = [
       </div>
     </div>
   </section>
+
+  <!-- ===== APP SHOWCASE SECTION ===== -->
+  <AppShowcase />
 
   <!-- ===== KNOWLEDGE HUB SECTION (BLOG) ===== -->
   <section id="blog" class="section" style="background: radial-gradient(circle at 10% 80%, rgba(var(--color-secondary-rgb), 0.03), transparent 40%);">

@@ -53,3 +53,30 @@ const { title, subtitle, badge } = Astro.props;
     <svg class="animate-bounce-gentle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </a>
 </section>
+
+<style>
+  .system-hero-btn {
+    border: 1px solid var(--color-accent) !important;
+    background: rgba(var(--color-accent-rgb), 0.1) !important;
+    color: var(--color-accent) !important;
+    box-shadow: 0 0 20px rgba(var(--color-accent-rgb), 0.2);
+    transition: all 0.4s var(--ease-out-expo) !important;
+  }
+
+  .system-hero-btn:hover {
+    background: var(--color-accent) !important;
+    color: white !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(var(--color-accent-rgb), 0.4);
+  }
+
+  @keyframes pulse-indigo {
+    0% { box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(var(--color-accent-rgb), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0); }
+  }
+
+  .system-hero-btn {
+    animation: pulse-indigo 2s infinite;
+  }
+</style>
